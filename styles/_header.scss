@@ -1,0 +1,41 @@
+// headerin tyylit
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+@media (min-width: 600px) {
+    html {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        overflow: hidden;
+        .header-one {
+            height: 36vh;
+            padding: 30px 0px 0px 30px;
+            position: relative;
+            z-index: -1;
+            background-position-y: 48%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            .logo {
+                img {
+                    width: 120px;
+                }
+            }
+            .editor {
+                font-family: $font-pacifico;
+                font-size: 45px;
+                position: absolute;
+                right: 9%;
+                bottom: 0%;
+                margin-bottom: 6vh;
+                line-height: 0.8;
+            }
+        }
+    }
+}
+

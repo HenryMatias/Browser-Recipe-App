@@ -1,0 +1,318 @@
+.modal {
+    .modal-dialog {
+        margin: 0px;
+        .modal-header {
+            border: none;
+            padding-bottom: 55px;
+            background-color: $light-grey-1;
+            h5 {
+                @include fontstyle (30px, 400, $purple, $font-pacifico);
+                position: absolute;
+                left: 50%;
+                width: 300px;
+                text-align: center;
+                margin-left: -150px;
+                margin-top: 10px;
+            }
+        }
+    }
+    .modal-body {
+        background-color: $light-grey-1;
+        .recipename {
+            @include borders(modalinputarea);
+            width: 100%;
+            margin-bottom: 10px;
+            position: relative;
+            .input-heading {
+                @include fontstyle (14px, 700, $purple, $font-nunito);
+                text-transform: uppercase;
+                margin-bottom: 0px;
+            }
+            input {
+                @include fontstyle (14px, 700, black, $font-nunito);
+                width: 100%;
+                border: none;
+                padding-left: 0px;
+                margin-bottom: 0px;
+                &:focus {
+                    outline: none;
+                }
+            }
+            i {
+                position: absolute;
+                right: 0%;
+                color:  $purple;
+                font-size: 20px;
+            }
+            #recipestyle {
+                @include fontstyle (14px, 700, black, $font-nunito);
+                width: 100%;
+                border: none;
+                padding-bottom: 2px;
+                background-color: transparent;
+                margin-left: -4px;
+            }
+        }
+        .adding-ingredients {
+            display: flex;
+            justify-content: space-between;
+            .ingredients {
+                @include borders(modalinputarea);
+                width: 80%;
+                .input-heading {
+                    @include fontstyle (14px, 700, $purple, $font-nunito);
+                    text-transform: uppercase;
+                    margin-bottom: 0px;
+                }
+                .choose-ingredients {
+                    display: inline-flex;
+                    margin-top: 0px;
+                    .ingredient {
+                        width: 45%;
+                        margin-right: 10px;
+                        position: relative;
+                        input {
+                            @include fontstyle (14px, 700, black, $font-nunito);
+                            width: 100%;
+                            border: none;
+                            margin-left: -1px;
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                        i {
+                            position: absolute;
+                            right: 0%;
+                            color:  $purple;
+                            font-size: 20px;
+                        }
+                    }
+                    .amount {
+                        width: 26%;
+                        position: relative;
+                        margin-right: 10px;
+                        input {
+                            @include fontstyle (14px, 700, black, $font-nunito);
+                            width: 100%;
+                            border: none;
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                        i {
+                            position: absolute;
+                            right: 0%;
+                            color:  $purple;
+                            font-size: 20px;
+                        }
+                    }
+                    .unit {
+                        width: 23%;
+                        position: relative;
+                        padding-top: 1px;
+                        select {
+                            @include fontstyle (14px, 700, black, $font-nunito);
+                            width: 100%;
+                            border: none;
+                            padding-bottom: 2px;
+                            background-color: transparent;
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+            }
+            .add {
+                @include fontstyle (28px, 700, $purple, $font-nunito);
+                width: 17%;
+                border: none;
+                font-size: 28px;
+                border-radius: 20px;
+                text-transform: uppercase;
+                border: 2px solid $purple;
+            }
+        }
+
+        // Tämä osio on Reseptien luonnin aines luettelo
+        .ready-ingredients,
+        .ready-shoplist {
+            @include borders(modalinputarea);
+            margin-top: 10px;
+            min-height: 30px;
+            width: 80%;
+            p {
+                @include fontstyle (14px, 700, $purple, $font-nunito);
+                text-transform: uppercase;
+                margin-bottom: 0;
+            }
+            #tableid,
+            #tableidshoplist {
+                display: grid;
+                grid-template-columns: 50% 40% 10%;
+                input {
+                    @include fontstyle (14px, 700, black, $font-nunito);
+                    border: none;
+                }
+                .aineslista-amount-class {
+                    text-align: right;
+                }
+                .aineslista-amount-class:nth-child(even),
+                .aineslista-ingredient-class:nth-child(odd),
+                .aineslista-unit-class:nth-child(odd) {
+                    background-color: $light-grey-1;
+                }
+            }
+        }
+        // Ainesluettelo päättyy
+
+        .add-second {
+            right: 0%;
+            bottom: -29%;
+        }
+        .instructions {
+            position: relative;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            .add-instructions {
+                @include borders(modalinputarea);
+                width: 80%;
+                h5 {
+                    @include fontstyle (14px, 700, $purple, $font-nunito);
+                    text-transform: uppercase;
+                    margin-bottom: 0px;
+                }
+                textarea {
+                    @include fontstyle (14px, 700, black, $font-nunito);
+                    border: none;
+                }
+            }
+            .add-instructions-button {
+                @include fontstyle (28px, 700, $purple, $font-nunito);
+                width: 17%;
+                border: none;
+                border-radius: 20px;
+                text-transform: uppercase;
+                border: 2px solid $purple;
+                overflow: hidden;
+                button {
+                    @include fontstyle (28px, 700, $purple, $font-nunito);
+                    border: none;
+                    height: 100%;
+                    width: 100%;
+                    text-transform: uppercase;
+                }
+            }
+        }
+        .ready-instructions {
+            @include borders(modalinputarea);
+            margin-top: 10px;
+            min-height: 30px;
+            width: 80%;
+            p {
+                @include fontstyle (14px, 700, $purple, $font-nunito);
+                text-transform: uppercase;
+                margin-bottom: 0;
+            }
+            #tableid2 {
+                width: 100%;
+                textarea {
+                    @include fontstyle (28px, 700, black, $font-nunito);
+                    width: 100%;
+                    margin-bottom: -6px!important;
+                    border: none;
+                }
+                textarea:nth-child(odd) {
+                    background-color: $light-grey-1;
+                }
+            }
+        }
+    }
+    #modal-body-shoppinglist {
+        padding-top: 30px;
+    }
+    .modal-footer {
+        background-color: $light-grey-1;
+        #checkboxarea {
+            position: absolute;
+            left: 0%;
+            margin-left: 1rem;
+            padding-top: 10px;
+            label {
+                @include fontstyle (16px, 700, $purple, $font-baloo);
+            }
+            input.valmisresepti {
+                transform: scale(1.5);
+                margin-right: 5px;
+            }
+        }
+        #checkboxareashop {
+            position: absolute;
+            left: 0%;
+            margin-left: 1rem;
+            padding-top: 10px;
+            label {
+                @include fontstyle (16px, 700, $purple, $font-baloo);
+            }
+            input.valmisresepti {
+                transform: scale(1.5);
+                margin-right: 5px;
+            }
+        }
+        .close-button {
+            @include fontstyle (16px, 700, $purple, $font-baloo);
+            border: 2px solid $purple;
+            width: 80px;
+            height: 40px;
+            border-radius: 10px;
+            padding-top: 10px;
+        }
+        .send-button {
+            @include fontstyle (16px, 700, white, $font-baloo);
+            border: 2px solid $purple;
+            width: 80px;
+            height: 40px;
+            background-color: $purple;
+            border-radius: 10px;
+            padding-top: 10px;
+        }
+    }
+}
+#deleteAllModal {
+    .modal-dialog {
+        position: absolute;
+        width: 250px;
+        height: 100px!important;
+        top: 50%;
+        margin-top: -50px;
+        left: 50%;
+        margin-left: -125px;
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+            .modal-header {
+                border: none;
+            }
+            .modal-body {
+                border: none;
+                text-align: center;
+                padding: 0px;
+                p {
+                    @include fontstyle (16px, 700, $purple, $font-baloo);
+                    margin: 20px 0px 0px 0px;
+                }
+            }
+            .modal-footer {
+                display: flex;
+                justify-content: center;
+                border: none;
+                padding: 40px 0px 10px 0px;
+                button {
+                    width: 100px;
+                }
+            }
+        }
+    }
+}

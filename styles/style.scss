@@ -1,0 +1,52 @@
+//Don't change the name of this file!
+
+// Fonts
+$font-baloo: 'Baloo Tammudu 2', cursive;
+$font-pacifico: 'Pacifico', cursive;
+$font-nunito: 'Nunito', sans-serif;
+
+// Colors
+$purple: #9e008d;
+$light-purple: #f68bff36;
+$pink: #f153b5;
+
+$dark-grey: #495057;
+$light-grey-3: #9e9e9e;
+$light-grey-2: #b0b0b0;
+$light-grey-1: #f4f4f4;
+
+// Define fonts
+@mixin fontstyle ($size, $weight, $fontcolor, $family) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $fontcolor;
+    font-family: $family;
+}
+
+// Define display and center
+@mixin display ($display, $align, $justify) {
+    display: $display!important;
+    align-items: $align!important;
+    justify-content: $justify!important;
+}
+
+@mixin borders ($b) {
+    @if $b == modalinputarea {
+        border-radius: 20px;
+        padding: 10px;
+    } @else {
+
+    }
+  }
+
+$colors: (color1: white, color2: black);
+    @each $key, $color in $colors {
+        .#{$color}-bg {background-color: $color!important;}
+    }
+
+
+
+@import './header';
+@import './main';
+@import './footer';
+@import './modal';

@@ -1,0 +1,74 @@
+// footerin tyylit
+
+.footer-menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 7vh;
+    width: 100%;
+    padding-top: 0px;
+    background-color: #f2f2f2f2;
+    position: fixed;
+    bottom: 0%;
+    padding-top: 6px;
+    .menu-item {
+        text-align: center;
+        position: relative;
+        width: 20%;
+        i {
+            font-size: 20px;
+        }
+        p {
+            @include fontstyle (10px, 700, $light-grey-2, $font-baloo);
+        }
+        #amountofshoprows {
+            width: 17px;
+            height: 17px;
+            position: absolute;
+            right: 28%;
+            top: 0%;
+            border-radius: 50%;
+            padding-top: 3px;
+            display: none;
+            p {
+                @include fontstyle (11px, 700, white, $font-baloo);
+                padding: 0px;
+                margin: 0px;
+            }
+        }
+    }
+    .menu-item-new {
+        @include display (flex, center, center);
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        left: 50%;
+        margin-left: -30px;
+        top: -60%;
+        border-radius: 50%;
+        i {
+            color: white;
+            font-size: 30px;
+        }
+    }
+    li {
+        a {
+            background-color: transparent;
+            color: $light-grey-2!important;
+            padding: 0px;
+        }
+        .active {
+            background-color: transparent!important;
+            border: none!important;
+            color: $dark-grey!important;
+            p {
+                color: $dark-grey!important;
+            }
+            div {
+                p {
+                    color: white!important;
+                }
+            }
+        }
+    }
+}
