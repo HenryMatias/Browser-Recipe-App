@@ -1,4 +1,4 @@
-# Browser-Recipe-App
+<h1>Browser-Recipe-App</h1>
 'Reseptini' is a recipe application that works only on mobile phones.
 
 Recipe App provides two functions. In the forefront it is a recipe application where you can download your own recipes. With the help of WordPress custom posts it retains information of recipes ingredients and phases that needs to be performed to make a wanted dish.
