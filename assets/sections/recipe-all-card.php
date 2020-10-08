@@ -21,7 +21,10 @@
 
 <div class="card">
 
-    <?php 
+    
+    <?php
+        // Removes white spaces from the title
+    
         $title = get_field('reseptin_nimi');
         $recipe_title = str_replace(' ', '', $title);
     ?>
