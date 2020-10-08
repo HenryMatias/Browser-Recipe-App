@@ -21,7 +21,12 @@
 
 <div class="card">
 
-    <div class="card-header white-bg" id="headingOne<?php echo get_field('reseptin_nimi'); ?>" data-toggle="collapse" data-target="#collapseOne<?php echo get_field('reseptin_nimi'); ?>" aria-expanded="true" aria-controls="collapseOne<?php echo get_field('reseptin_nimi'); ?>">
+    <?php 
+        $title = get_field('reseptin_nimi');
+        $recipe_title = str_replace(' ', '', $title);
+    ?>
+
+    <div class="card-header white-bg" id="headingOne<?php echo "$recipe_title"; ?>" data-toggle="collapse" data-target="#collapseOne<?php echo "$recipe_title"; ?>" aria-expanded="true" aria-controls="collapseOne<?php echo "$recipe_title"; ?>">
         <h5 class="mb-0">
             <button class="btn btn-link" style="color: <?php echo "$color1" ?>;">
                 <?php the_title(); ?>
@@ -30,16 +35,16 @@
         <i class="fas fa-caret-down" style="color: <?php echo "$color1" ?>;"></i>
     </div>
 
-    <div id="collapseOne<?php echo get_field('reseptin_nimi'); ?>" class="collapse" aria-labelledby="headingOne<?php echo get_field('reseptin_nimi'); ?>" data-parent="#accordion">
+    <div id="collapseOne<?php echo "$recipe_title"; ?>" class="collapse" aria-labelledby="headingOne<?php echo "$recipe_title"; ?>" data-parent="#accordion">
         <div class="card-body">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-ainekset-tab-<?php echo get_field('reseptin_nimi'); ?>" data-toggle="tab" href="#nav-ainekset-<?php echo get_field('reseptin_nimi'); ?>" role="tab" aria-controls="nav-ainekset-<?php echo get_field('reseptin_nimi'); ?>" aria-selected="true">Ainekset</a>
-                    <a class="nav-item nav-link" id="nav-ohje-tab-<?php echo get_field('reseptin_nimi'); ?>" data-toggle="tab" href="#nav-profile-<?php echo get_field('reseptin_nimi'); ?>" role="tab" aria-controls="nav-profile-<?php echo get_field('reseptin_nimi'); ?>" aria-selected="false">Valmistus</a>
+                    <a class="nav-item nav-link active" id="nav-ainekset-tab-<?php echo "$recipe_title"; ?>" data-toggle="tab" href="#nav-ainekset-<?php echo "$recipe_title"; ?>" role="tab" aria-controls="nav-ainekset-<?php echo get_field('reseptin_nimi'); ?>" aria-selected="true">Ainekset</a>
+                    <a class="nav-item nav-link" id="nav-ohje-tab-<?php echo "$recipe_title"; ?>" data-toggle="tab" href="#nav-profile-<?php echo "$recipe_title"; ?>" role="tab" aria-controls="nav-profile-<?php echo "$recipe_title"; ?>" aria-selected="false">Valmistus</a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-ainekset-<?php echo get_field('reseptin_nimi'); ?>" role="tabpanel" aria-labelledby="nav-ainekset-tab-<?php echo get_field('reseptin_nimi'); ?>">
+                <div class="tab-pane fade show active" id="nav-ainekset-<?php echo "$recipe_title"; ?>" role="tabpanel" aria-labelledby="nav-ainekset-tab-<?php echo "$recipe_title"; ?>">
                 
 
 
