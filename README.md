@@ -22,3 +22,5 @@ There are also few plugins that are necessary:
   <li>(Polylang)</li>
   <li>(Password Protected)</li>
 </ul>
+
+<p>If you are willing to modify the code you have to download the repo and then add node modules folder to the Reseptini folder. After that you can ran Gulp in your terminal and install necessary modules to run Gulp. You need to remind also that this browser based application is also made for the WordPress when you are testing it locally. After the modifications you can get rid of the gulpfile, node modules, styles and scirpts folders, gitignore and padkage-lock files.</p>
