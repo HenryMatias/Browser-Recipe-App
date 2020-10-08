@@ -77,7 +77,7 @@
 
 
                 </div>
-                <div class="tab-pane fade" id="nav-profile-<?php echo get_field('reseptin_nimi'); ?>" role="tabpanel" aria-labelledby="nav-profile-tab-<?php echo get_field('reseptin_nimi'); ?>">
+                <div class="tab-pane fade" id="nav-profile-<?php echo "$recipe_title"; ?>" role="tabpanel" aria-labelledby="nav-profile-tab-<?php echo "$recipe_title"; ?>">
 
 
 
