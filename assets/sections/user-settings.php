@@ -10,6 +10,7 @@
     $settings->the_post();
 ?>
 
+<div class="user-settings">
 <form method="post" enctype="multipart/form-data">
 <input type="hidden" name="settingsid" value="<?php echo get_the_ID(); ?>">
 <input type="hidden" id="activetheme" name="activetheme" value="<?php echo get_field('aktiivinen_teema'); ?>">
@@ -61,11 +62,12 @@
             <button class="white-bg" name="newsettings" type="submit"><?php pll_e('Tallenna Muutokset'); ?></button>
         </div>
         <div class="setting-area">
-            <button class="white-bg"><?php pll_e('Poista Tili'); ?></button>
+            <a href="<?php pll_e('To Git Linkki'); ?>" target="_blank" class="white-bg"><?php pll_e('To Git'); ?></a>
         </div>
     </div>
 </div>
 </form>
+</div>
 
 <?php
 }
