@@ -45,8 +45,9 @@ $colors: (color1: white, color2: black);
     }
 
 
-
+// These are the links to the original style files
 @import './header';
 @import './main';
+@import './main_settings';
 @import './footer';
 @import './modal';
