@@ -1,11 +1,21 @@
-<!-- Use this if you want to make a direct link -->
-<!-- Remember to add two php tags; before echo and the_title -->
-<!-- <a href=" echo esc_url( post_permalink() );">the_title();</a> -->
+<?php
+/**  
+     Use this if you want to make a direct link 
+     Remember to add two php tags; before echo and the_title
+     <a href=" echo esc_url( post_permalink() );">the_title();</a>
+*/
+?>
 
 
 <div class="card">
 
-    <div class="card-header" id="headingOne<?php echo get_field('reseptin_nimi'); ?>-search-result" data-toggle="collapse" data-target="#collapseOne<?php echo get_field('reseptin_nimi'); ?>-search-result" aria-expanded="true" aria-controls="collapseOne<?php echo get_field('reseptin_nimi'); ?>-search-result">
+    <?php
+        // Removes white spaces from the title
+        $search_title = get_field('reseptin_nimi');
+        $search_recipe_title = str_replace(' ', '', $search_title);
+    ?>
+
+    <div class="card-header" id="headingOne<?php echo "$search_recipe_title"; ?>-search-result" data-toggle="collapse" data-target="#collapseOne<?php echo "$search_recipe_title"; ?>-search-result" aria-expanded="true" aria-controls="collapseOne<?php echo "$search_recipe_title"; ?>-search-result">
         <h5 class="mb-0">
             <button class="btn btn-link">
             <?php the_title(); ?>
@@ -14,16 +24,16 @@
         <i class="fas fa-caret-down"></i>
     </div>
 
-    <div id="collapseOne<?php echo get_field('reseptin_nimi'); ?>-search-result" class="collapse" aria-labelledby="headingOne<?php echo get_field('reseptin_nimi'); ?>-search-result" data-parent="#accordion">
+    <div id="collapseOne<?php echo "$search_recipe_title"; ?>-search-result" class="collapse" aria-labelledby="headingOne<?php echo "$search_recipe_title"; ?>-search-result" data-parent="#accordion">
         <div class="card-body">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-ainekset-tab-<?php echo get_field('reseptin_nimi'); ?>-search-result" data-toggle="tab" href="#nav-ainekset-<?php echo get_field('reseptin_nimi'); ?>-search-result" role="tab" aria-controls="nav-ainekset-<?php echo get_field('reseptin_nimi'); ?>-search-result" aria-selected="true">Ainekset</a>
-                    <a class="nav-item nav-link" id="nav-ohje-tab-<?php echo get_field('reseptin_nimi'); ?>-search-result" data-toggle="tab" href="#nav-profile-<?php echo get_field('reseptin_nimi'); ?>-search-result" role="tab" aria-controls="nav-profile-<?php echo get_field('reseptin_nimi'); ?>-search-result" aria-selected="false">Valmistus</a>
+                    <a class="nav-item nav-link active" id="nav-ainekset-tab-<?php echo "$search_recipe_title"; ?>-search-result" data-toggle="tab" href="#nav-ainekset-<?php echo "$search_recipe_title"; ?>-search-result" role="tab" aria-controls="nav-ainekset-<?php echo "$search_recipe_title"; ?>-search-result" aria-selected="true">Ainekset</a>
+                    <a class="nav-item nav-link" id="nav-ohje-tab-<?php echo "$search_recipe_title"; ?>-search-result" data-toggle="tab" href="#nav-profile-<?php echo "$search_recipe_title"; ?>-search-result" role="tab" aria-controls="nav-profile-<?php echo "$search_recipe_title"; ?>-search-result" aria-selected="false">Valmistus</a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-ainekset-<?php echo get_field('reseptin_nimi'); ?>-search-result" role="tabpanel" aria-labelledby="nav-ainekset-tab-<?php echo get_field('reseptin_nimi'); ?>-search-result">
+                <div class="tab-pane fade show active" id="nav-ainekset-<?php echo "$search_recipe_title"; ?>-search-result" role="tabpanel" aria-labelledby="nav-ainekset-tab-<?php echo "$search_recipe_title"; ?>-search-result">
                 
 
 
@@ -53,7 +63,7 @@
 
 
                 </div>
-                <div class="tab-pane fade" id="nav-profile-<?php echo get_field('reseptin_nimi'); ?>-search-result" role="tabpanel" aria-labelledby="nav-profile-tab-<?php echo get_field('reseptin_nimi'); ?>-search-result">
+                <div class="tab-pane fade" id="nav-profile-<?php echo "$search_recipe_title"; ?>-search-result" role="tabpanel" aria-labelledby="nav-profile-tab-<?php echo "$search_recipe_title"; ?>-search-result">
 
 
 
