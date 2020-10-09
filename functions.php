@@ -16,7 +16,7 @@
 
     // Main style and js
     wp_enqueue_script("main", get_theme_file_uri('/assets/js/script.js'), NULL, '1.0.0', true);
-    wp_register_style('styles', get_template_directory_uri() . '/assets/css/style.css', array(), microtime(), 'all');
+    wp_register_style('styles', get_template_directory_uri() . '/assets/css/style.css', array(), 'microtime()', 'all');
     wp_enqueue_style('styles'); // Enqueue it!
     // --> Change microtime to version number (for example '1.1') before release!
 
