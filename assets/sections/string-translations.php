@@ -14,7 +14,8 @@ add_action('init', function() {
     pll_register_string('Asetukset', 'Ensisijainen Vari', 'Translate');
     pll_register_string('Asetukset', 'Toinen Vari', 'Translate');
     pll_register_string('Asetukset', 'Tallenna Muutokset', 'Translate');
-    pll_register_string('Asetukset', 'Poista Tili', 'Translate');
+    pll_register_string('Asetukset', 'To Git', 'Translate');
+    pll_register_string('Asetukset', 'To Git Linkki', 'Translate');
 
     pll_register_string('Uusi Resepti', 'Uusi Resepti', 'Translate');
     pll_register_string('Uusi Resepti', 'Nimi Placeholder', 'Translate');
