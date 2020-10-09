@@ -36,116 +36,6 @@
 
 
 
-
-    ////////////////////////////////////////////////////////////////
-    ////////         adding thumbnail support            ///////////
-    ////////////////////////////////////////////////////////////////
-
-    function ar_init() {
-        add_theme_support('post-thumbnails');
-    }
-    
-    add_action('after_setup_theme', 'ar_init');
-
-
-
-
-
-
-
-
-
-
-
-    //////////////////////////////////////////////////////////
-    ////////           adding recipe support          ////////
-    //////////////////////////////////////////////////////////
-
-    function reseptini_reseptit_custom_post_type() {
-        add_theme_support( 'post-thumbnails' );
-        register_post_type('recipe',
-            array(
-                'rewrite'   => array('slug' => 'recipes'),
-                'labels'    => array(
-                    'name'          => 'Reseptit',
-                    'singular_name' => 'Reseptit',
-                    ),
-                'menu_icon'     => 'dashicons-format-aside',
-                'public'        => true,
-                'has_archive'   => true,
-                'supports'      => array(
-                    'title', 'thumbnail',
-                )
-            )
-        );
-    }
-    add_action('init', 'reseptini_reseptit_custom_post_type');
-
-
-
-    //////////////////////////////////////////////////////////
-    ////////       adding recipe send support         ////////
-    //////////////////////////////////////////////////////////
-
-
-    if(isset($_POST['newrecipename'])) {
-
-        add_theme_support( 'post-thumbnails', array('recipe'));
-
-        $my_post = array(
-            'post_type'     => 'recipe',
-            'post_title'    => $_POST['newrecipename'],
-            'post_status'   => 'publish',
-            );
-
-        $post_id = wp_insert_post($my_post);
-
-        $nametobetrimmed = $_POST['newrecipename'];
-        $trimmedrecipe = str_replace(' ', '', $nametobetrimmed);
-
-        $field_key = "reseptin_nimi";
-        $value = $trimmedrecipe;
-        update_field( $field_key, $value, $post_id );
-
-        $field_key = "laji";
-        $value = $_POST['recipestyle'];
-        update_field( $field_key, $value, $post_id );
-
-        
-        $i = 1;
-        $aor = $_POST['amountofrows'];
-
-        for ($x = 0; $x < $aor; $x++) {
-
-            $row = array(
-                'maara' => $_POST['valueid' . $i],
-                'yksikko'  => $_POST['unitid' . $i],
-                'aineksen_nimi'  => $_POST['ainesid' . $i],
-            );
-            
-            add_row('ainekset', $row, $post_id);
-
-            $i++;
-          }
-          
-
-          $u = 1;
-          $aoa = $_POST['amountofareas'];
-
-          for ($x = 0; $x < $aoa; $x++) {
-
-            $row = array(
-                'vaihe' => $_POST['vaiheid' . $u],
-            );
-            
-            add_row('ohje', $row, $post_id);
-
-            $u++;
-        }
-    };
-
-
-
     //////////////////////////////////////////////////////////
     ////////            adding menu support           ////////
     //////////////////////////////////////////////////////////
@@ -155,8 +45,6 @@
         register_nav_menu('my-custom-menu',__( 'My Custom Menu' ));
       }
       add_action( 'init', 'wpb_custom_new_menu' );
-
-
 
 
     //////////////////////////////////////////////////////////
@@ -179,11 +67,125 @@
     add_action( 'widgets_init', 'arphabet_widgets_init' );
 
 
+    ///////////////////////////////////////////////////////////
+    ////////         adding thumbnail support         /////////
+    ///////////////////////////////////////////////////////////
+
+
+    function ar_init() {
+        add_theme_support('post-thumbnails');
+    }
+    
+    add_action('after_setup_theme', 'ar_init');
+
+
+    //////////////////////////////////////////////////////////
+    ////////           adding recipe support          ////////
+    ////////    --> This function makes an custom     ////////
+    ////////    post type to WordPress where all      ////////
+    ////////    the recipes are going to be sent.     ////////
+    //////////////////////////////////////////////////////////
+
+
+    function reseptini_reseptit_custom_post_type() {
+        add_theme_support( 'post-thumbnails' );
+        register_post_type('recipe',
+            array(
+                'rewrite'   => array('slug' => 'recipes'),
+                'labels'    => array(
+                    'name'          => 'Reseptit',
+                    'singular_name' => 'Reseptit',
+                    ),
+                'menu_icon'     => 'dashicons-format-aside',
+                'public'        => true,
+                'has_archive'   => true,
+                'supports'      => array(
+                    'title', 'thumbnail',
+                )
+            )
+        );
+    }
+    add_action('init', 'reseptini_reseptit_custom_post_type');
+
+
+    //////////////////////////////////////////////////////////
+    ////////       adding recipe send support         ////////
+    ////////    --> This function sends all the       ////////
+    ////////    data of the recipes from the recipes  ////////
+    ////////    modal to the Reseptit Custom Post.    ////////
+    //////////////////////////////////////////////////////////
+
+
+    if(isset($_POST['newrecipename'])) {
+
+        add_theme_support( 'post-thumbnails', array('recipe'));
+
+        $my_post = array(
+            'post_type'     => 'recipe',
+            'post_title'    => $_POST['newrecipename'],
+            'post_status'   => 'publish',
+            );
+
+        $post_id = wp_insert_post($my_post);
+
+
+        //Removes whitespaces from recipe a name before sending it to custom post
+        $nametobetrimmed = $_POST['newrecipename'];
+        $trimmedrecipe = str_replace(' ', '', $nametobetrimmed);
+
+        $field_key = "reseptin_nimi";
+        $value = $trimmedrecipe;
+        update_field( $field_key, $value, $post_id );
+
+        $field_key = "laji";
+        $value = $_POST['recipestyle'];
+        update_field( $field_key, $value, $post_id );
+
+        //Goes trough all the ingredients that has been added to a ingredients table
+        //Loop starts 
+        $i = 1;
+        $aor = $_POST['amountofrows'];
+
+        for ($x = 0; $x < $aor; $x++) {
+
+            $row = array(
+                'maara' => $_POST['valueid' . $i],
+                'yksikko'  => $_POST['unitid' . $i],
+                'aineksen_nimi'  => $_POST['ainesid' . $i],
+            );
+            
+            add_row('ainekset', $row, $post_id);
+
+            $i++;
+          }
+        //Loop ends 
+          
+        //Goes trough all the phases that has been added to a phases table
+        //Loop starts 
+        $u = 1;
+        $aoa = $_POST['amountofareas'];
+
+        for ($x = 0; $x < $aoa; $x++) {
+
+        $row = array(
+                'vaihe' => $_POST['vaiheid' . $u],
+            );
+            
+            add_row('ohje', $row, $post_id);
+
+            $u++;
+        }
+        //Loop ends
+    };
 
 
     //////////////////////////////////////////////////////////
     ////////         adding shoplist support          ////////
+    ////////    --> This function makes an custom     ////////
+    ////////    post type to WordPress where all      ////////
+    ////////    the shop list items are been sent.    ////////
     //////////////////////////////////////////////////////////
+
 
     function reseptini_ostoslista_custom_post_type() {
         add_theme_support( 'post-thumbnails' );
@@ -206,10 +208,13 @@
     add_action('init', 'reseptini_ostoslista_custom_post_type');
 
 
-
     //////////////////////////////////////////////////////////
     ////////         adding settings support          ////////
+    ////////    --> This function makes an custom     ////////
+    ////////    post type to WordPress where all      ////////
+    ////////    the rules of settings are saved.      ////////
     //////////////////////////////////////////////////////////
+
 
     function reseptini_asetukset_custom_post_type() {
         add_theme_support( 'post-thumbnails' );
@@ -232,10 +237,11 @@
     add_action('init', 'reseptini_asetukset_custom_post_type');
 
 
-
-
     //////////////////////////////////////////////////////////
     ////////    adding new item to shoplist support   ////////
+    ////////    --> This function sends all the       ////////
+    ////////    data of the shop list from the shop   ////////
+    ////////    list modal to the shoplist Cust.post  ////////
     //////////////////////////////////////////////////////////
 
 
@@ -264,6 +270,9 @@
 
     //////////////////////////////////////////////////////////
     ////////       adding remove row to shoplist      ////////
+    ////////    --> This function removes             ////////
+    ////////    a specific row from a shoplists'      ////////
+    ////////    custom post in WordPress              ////////
     //////////////////////////////////////////////////////////
 
 
@@ -274,13 +283,14 @@
 
         delete_row('ostettavat_tuotteet', $rowtodelete, $post_id);
 
-        
-
     };
 
 
     //////////////////////////////////////////////////////////
     ////////       remove all rows from shoplist      ////////
+    ////////    --> This function removes             ////////
+    ////////    all the rows from a shoplists'        ////////
+    ////////    custom post in WordPress              ////////
     //////////////////////////////////////////////////////////
 
 
@@ -290,15 +300,17 @@
         $post_id = $_POST['deletewholeshoplist'];
         $repeater = get_field('ostettavat_tuotteet', $post_id);
         $first = array_shift($repeater);
-        update_field('ostettavat_tuotteet', $first, $post_id);
-
         
+        update_field('ostettavat_tuotteet', $first, $post_id);
 
     };
 
 
     //////////////////////////////////////////////////////////
     ////////       adding add to cart to recipes      ////////
+    ////////    --> This function sends items' data   ////////
+    ////////    from the recipes' listing to the      ////////
+    ////////    shoplist custom post in WordPress     ////////
     //////////////////////////////////////////////////////////
 
 
@@ -318,11 +330,75 @@
     };
 
 
+    /////////////////////////////////////////////////////////////
+    ////////           update user settings              ////////
+    ////////    --> This function sends all the          ////////
+    ////////    data from the settings to the settings   ////////
+    ////////    custom post in WordPress.                ////////
+    /////////////////////////////////////////////////////////////
+
+
+    if(isset($_POST['newsettings'])) {
+        
+
+        $post_id = $_POST['settingsid'];
+        $name_value = $_POST['newemail'];
+        $name_value = $_POST['newname'];
+        $name_value = $_POST['newimage'];
+
+        $field_key = "nimi";
+        $value = $_POST['newname'];
+        update_field( $field_key, $value, $post_id );
+
+        $field_key = "sahkopost";
+        $value = $_POST['newemail'];
+        update_field( $field_key, $value, $post_id );
+
+        $field_key = "ensimmainen_vari";
+        $value = $_POST['newcolor1'];
+        update_field( $field_key, $value, $post_id );
+
+        $field_key = "toinen_vari";
+        $value = $_POST['newcolor2'];
+        update_field( $field_key, $value, $post_id );
+
+        $field_key = "aktiivinen_teema";
+        $value = $_POST['activetheme'];
+        update_field( $field_key, $value, $post_id );
+
+        if(!function_exists('wp_generate_attachement_metadata')) {
+            require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+            require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+            require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+        }
+            if ($_FILES) {
+                foreach ($_FILES as $file => $array) {
+                    if ($_FILES[$file]['error'] !== UPLOAD_ERR_OK) {
+                        return "upload error : " . $_FILES[$file]['error'];
+                    }
+                    $attach_id = media_handle_upload( $file, $post_id);
+                }
+            }
+            if ($attach_id > 0) {
+                update_post_meta($post_id,'_thumbnail_id',$attach_id);
+            }
+    };
+
+
+    //////////////////////////////////////////////////////////
+    ////////            String translation            ////////
+    ////////    --> This adds all the translations    ////////
+    ////////    to Polylangs string translations      ////////
+    ////////    that can be modified in WP.           ////////        
+    //////////////////////////////////////////////////////////
+
+
+    include 'assets/sections/string-translations.php';
+
 
     //////////////////////////////////////////////////////////
     ////////       adding search bar ajax support     ////////
     //////////////////////////////////////////////////////////
-
 
 
     // the ajax function
@@ -374,64 +450,4 @@
 
     <?php
     }
-
-    //////////////////////////////////////////////////////////
-    ////////       update user settings               ////////
-    //////////////////////////////////////////////////////////
-
-
-    if(isset($_POST['newsettings'])) {
-        
-
-        $post_id = $_POST['settingsid'];
-        $name_value = $_POST['newemail'];
-        $name_value = $_POST['newname'];
-        $name_value = $_POST['newimage'];
-
-        $field_key = "nimi";
-        $value = $_POST['newname'];
-        update_field( $field_key, $value, $post_id );
-
-        $field_key = "sahkopost";
-        $value = $_POST['newemail'];
-        update_field( $field_key, $value, $post_id );
-
-        $field_key = "ensimmainen_vari";
-        $value = $_POST['newcolor1'];
-        update_field( $field_key, $value, $post_id );
-
-        $field_key = "toinen_vari";
-        $value = $_POST['newcolor2'];
-        update_field( $field_key, $value, $post_id );
-
-        $field_key = "aktiivinen_teema";
-        $value = $_POST['activetheme'];
-        update_field( $field_key, $value, $post_id );
-
-        if(!function_exists('wp_generate_attachement_metadata')) {
-            require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-            require_once(ABSPATH . "wp-admin" . '/includes/file.php');
-            require_once(ABSPATH . "wp-admin" . '/includes/media.php');
-        }
-            if ($_FILES) {
-                foreach ($_FILES as $file => $array) {
-                    if ($_FILES[$file]['error'] !== UPLOAD_ERR_OK) {
-                        return "upload error : " . $_FILES[$file]['error'];
-                    }
-                    $attach_id = media_handle_upload( $file, $post_id);
-                }
-            }
-            if ($attach_id > 0) {
-                update_post_meta($post_id,'_thumbnail_id',$attach_id);
-            }
-        
-
-    };
-
-
-    //////////////////////////////////////////////////////////
-    ////////            String translation            ////////
-    //////////////////////////////////////////////////////////
-
-    include 'assets/sections/string-translations.php';
 
