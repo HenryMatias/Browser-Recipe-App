@@ -38,6 +38,7 @@
         document.getElementById("maincontent").style.borderRadius = "0px 50px 0px 0px";
         document.getElementById("maincontent").style.opacity = "1";
         document.getElementById("maincontent").style.pointerEvents = "auto";
+        document.getElementById("maincontent").style.height = "auto";
         document.getElementById("headeroneid").style.transitionDuration = "0.5s";
         document.getElementById("headeroneid").style.height = "36vh";
         document.getElementById("headeroneid").style.padding = "30px 0px 0px 30px";
@@ -76,6 +77,7 @@
         document.getElementById("maincontent").style.borderRadius = "50px 0px 0px 0px"
         document.getElementById("maincontent").style.opacity = "1";
         document.getElementById("maincontent").style.pointerEvents = "auto";
+        document.getElementById("maincontent").style.height = "auto";
         document.getElementById("headeroneid").style.transitionDuration = "0.5s";
         document.getElementById("headeroneid").style.height = "36vh";
         document.getElementById("headeroneid").style.padding = "30px 0px 0px 30px";
@@ -113,6 +115,7 @@
         document.getElementById("maincontent").style.borderRadius = "50px 0px 0px 0px"
         document.getElementById("maincontent").style.opacity = "1";
         document.getElementById("maincontent").style.pointerEvents = "auto";
+        document.getElementById("maincontent").style.height = "auto";
         document.getElementById("headeroneid").style.transitionDuration = "0.5s";
         document.getElementById("headeroneid").style.height = "36vh";
         document.getElementById("headeroneid").style.padding = "30px 0px 0px 30px";
@@ -131,6 +134,7 @@
         document.getElementById("maincontent").style.borderRadius = "0px 0px 0px 0px"
         document.getElementById("maincontent").style.opacity = "0";
         document.getElementById("maincontent").style.pointerEvents = "none";
+        document.getElementById("maincontent").style.height = "0px";
         document.getElementById("modalbutton").setAttribute("data-target", "#");
         document.getElementById("settings").style.transitionDuration = "0.5s";
         document.getElementById("settings").style.opacity = "1";
