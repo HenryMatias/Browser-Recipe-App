@@ -1,6 +1,6 @@
 <h1>Browser-Recipe-App</h1>
 
-<b>Version 1.1</b>
+<b>Version 1.1</b><br>
 Fixed minor bugs and now all the features should work in all the mobile devices.
 
 
