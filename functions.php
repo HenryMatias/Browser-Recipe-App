@@ -79,6 +79,31 @@
     add_action('after_setup_theme', 'ar_init');
 
 
+    ///////////////////////////////////////////////////////////
+    ////////     adding Recipe App user support       /////////
+    ////////     --> This function creates a custom   /////////
+    ////////     user type to Repestini aoolication   /////////
+    ////////     and he will be given limited access  /////////
+    ////////     to WordPress                         /////////
+    ///////////////////////////////////////////////////////////
+
+
+    function receptini_create_custom_user() {
+
+        add_role('recipeuser', 'Reseptini käyttäjä');
+
+        $app_user = get_role('recipeuser');
+        $app_user->add_cap('read');
+        $app_user->add_cap('edit_recipe');
+        $app_user->add_cap('edit_recipes');
+        //$app_user->add_cap('edit_others_recipe');
+        //$app_user->add_cap('edit_others_recipes');
+
+    }
+
+    add_action('init', 'receptini_create_custom_user');
+
+
     //////////////////////////////////////////////////////////
     ////////           adding recipe support          ////////
     ////////    --> This function makes an custom     ////////
@@ -96,10 +121,11 @@
                     'name'          => 'Reseptit',
                     'singular_name' => 'Reseptit',
                     ),
-                'menu_icon'     => 'dashicons-format-aside',
-                'public'        => true,
-                'has_archive'   => true,
-                'supports'      => array(
+                'menu_icon'         => 'dashicons-format-aside',
+                'public'            => true,
+                'capability_type'   => 'recipe',
+                'has_archive'       => true,
+                'supports'          => array(
                     'title', 'thumbnail',
                 )
             )
