@@ -98,6 +98,14 @@
         $app_user->add_cap('edit_recipes');
         //$app_user->add_cap('edit_others_recipe');
         //$app_user->add_cap('edit_others_recipes');
+        $app_user->add_cap('edit_setting');
+        $app_user->add_cap('edit_settings');
+        //$app_user->add_cap('edit_others_setting');
+        //$app_user->add_cap('edit_others_settings');
+        $app_user->add_cap('edit_shoplist');
+        $app_user->add_cap('edit_shoplists');
+        //$app_user->add_cap('edit_others_shoplist');
+        //$app_user->add_cap('edit_others_shoplists');
 
     }
 
@@ -222,10 +230,11 @@
                     'name'          => 'Ostoslista',
                     'singular_name' => 'Ostoslista',
                     ),
-                'menu_icon'     => 'dashicons-cart',
-                'public'        => true,
-                'has_archive'   => true,
-                'supports'      => array(
+                'menu_icon'         => 'dashicons-cart',
+                'public'            => true,
+                'capability_type'   => 'shoplist',
+                'has_archive'       => true,
+                'supports'          => array(
                     'title', 'thumbnail',
                 )
             )
@@ -251,10 +260,11 @@
                     'name'          => 'Käyttäjä',
                     'singular_name' => 'Käyttäjä',
                     ),
-                'menu_icon'     => 'dashicons-admin-tools',
-                'public'        => true,
-                'has_archive'   => true,
-                'supports'      => array(
+                'menu_icon'         => 'dashicons-admin-tools',
+                'public'            => true,
+                'capability_type'   => 'setting',
+                'has_archive'       => true,
+                'supports'          => array(
                     'title', 'thumbnail',
                 )
             )
