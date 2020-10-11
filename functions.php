@@ -93,23 +93,16 @@
         // This part creates a role called Recipe App user and 
         // he will be given access to make changes only to
         // custom posts in WordPress 
-        
+
         add_role('recipeuser', 'Reseptini käyttäjä');
         $app_user = get_role('recipeuser');
         $app_user->add_cap('read');
         $app_user->add_cap('edit_recipe');
         $app_user->add_cap('edit_recipes');
-        //$app_user->add_cap('edit_others_recipe');
-        //$app_user->add_cap('edit_others_recipes');
         $app_user->add_cap('edit_setting');
         $app_user->add_cap('edit_settings');
-        //$app_user->add_cap('edit_others_setting');
-        //$app_user->add_cap('edit_others_settings');
         $app_user->add_cap('edit_shoplist');
         $app_user->add_cap('edit_shoplists');
-        //$app_user->add_cap('edit_others_shoplist');
-        //$app_user->add_cap('edit_others_shoplists');
-
 
         // This part of a code gives administrator an access to
         // handle all the posts that are been sent to custom
