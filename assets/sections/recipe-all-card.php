@@ -16,9 +16,6 @@
     $recipes = new WP_Query($args);
     while ($recipes->have_posts()) {
     $recipes->the_post();
-?>
-
-<?php 
 
     if( $post->post_author == $current_user->ID ) {
 
