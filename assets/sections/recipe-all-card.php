@@ -18,6 +18,11 @@
     $recipes->the_post();
 ?>
 
+<?php 
+
+    if( $post->post_author == $current_user->ID ) {
+
+?>
 
 <div class="card">
 
@@ -100,6 +105,12 @@
         </div>
     </div>
 </div>
+
+<?php
+
+    }
+
+?>
 
 <?php
     }

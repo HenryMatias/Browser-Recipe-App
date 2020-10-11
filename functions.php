@@ -99,6 +99,11 @@
         $app_user->add_cap('read');
         $app_user->add_cap('edit_recipe');
         $app_user->add_cap('edit_recipes');
+        $app_user->add_cap('read_private_recipes');
+        $app_user->add_cap('edit_private_recipe');
+        $app_user->add_cap('edit_private_recipes');
+        $app_user->add_cap('publish_recipes');
+        $app_user->add_cap('delete_recipes');
         $app_user->add_cap('edit_setting');
         $app_user->add_cap('edit_settings');
         $app_user->add_cap('edit_shoplist');
@@ -111,6 +116,8 @@
         $admin = get_role('administrator');
         $admin->add_cap('edit_recipe');
         $admin->add_cap('edit_recipes');
+        $admin->add_cap('publish_recipes');
+        $admin->add_cap('delete_recipes');
         $admin->add_cap('edit_others_recipe');
         $admin->add_cap('edit_others_recipes');
         $admin->add_cap('edit_setting');
@@ -149,7 +156,7 @@
                 'capability_type'   => 'recipe',
                 'has_archive'       => true,
                 'supports'          => array(
-                    'title', 'thumbnail',
+                    'title', 'thumbnail', 'author'
                 )
             )
         );
@@ -498,7 +505,20 @@
 
     }
     </script>
-
+    
     <?php
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
