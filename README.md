@@ -1,5 +1,8 @@
 <h1>Browser-Recipe-App</h1>
 
+<b>Version 1.2</b><br>
+Users access to different parts of WordPress has been limited to custom posts only.
+
 <b>Version 1.1</b><br>
 Fixed minor bugs and now all the features should work in all the mobile devices.
 
