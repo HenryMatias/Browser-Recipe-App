@@ -108,6 +108,8 @@
         $app_user->add_cap('edit_settings');
         $app_user->add_cap('edit_shoplist');
         $app_user->add_cap('edit_shoplists');
+        $app_user->add_cap('read_private_pages');
+
 
         // This part of a code gives administrator an access to
         // handle all the posts that are been sent to custom
