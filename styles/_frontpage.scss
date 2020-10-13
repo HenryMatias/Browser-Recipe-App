@@ -1,0 +1,62 @@
+#section1 {
+    height: 90vh;
+    position: relative;
+    display: block;
+    @include display(flex, center,center);
+    &::after {
+        content: "";
+        background: url("../images/header_background.png");
+        opacity: 0.1;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;  
+    }
+    #section1-right-background {
+        width: 50vw;
+        height: 96vh;
+        background: rgb(158,0,141);
+        background: linear-gradient(90deg, rgba(158,0,141,1) 0%, rgba(241,83,181,1) 83%);   
+        position: absolute;
+        right: 0%;
+        top: 0%;
+        margin-top: -6vh;
+    }
+    #frontpage-header {
+        height: 60vh;
+        position: relative;
+        img {
+            position: absolute;
+            width: 1200px;
+            left: 50%;
+            margin-left: -600px;
+            top: 50%;
+            margin-top: -363px;
+        }
+        .row {
+            height: 60vh;
+            #frontpage-header-left {
+                .heading {
+                    width: 468px;
+                    h1 {
+                        font-family: $font-pacifico;
+                        color: $purple;
+                        font-size: 120px;
+                        margin-bottom: 0px;
+                    }
+                    p {
+                        text-align: right;
+                        font-family: $font-nunito;
+                        margin-top: -15px;
+                        font-weight: 700;
+                        color: $purple;
+                    }
+                }
+            }
+            #frontpage-header-right {
+            }
+        }
+    }
+}
