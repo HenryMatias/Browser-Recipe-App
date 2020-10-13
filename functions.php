@@ -98,17 +98,18 @@
         $app_user = get_role('recipeuser');
         $app_user->add_cap('read');
         $app_user->add_cap('edit_recipe');
-        $app_user->add_cap('edit_recipes');
-        $app_user->add_cap('read_private_recipes');
+        $app_user->add_cap('read_private_recipe');
         $app_user->add_cap('edit_private_recipe');
-        $app_user->add_cap('edit_private_recipes');
-        $app_user->add_cap('publish_recipes');
-        $app_user->add_cap('delete_recipes');
+        $app_user->add_cap('publish_recipe');
+        $app_user->add_cap('delete_recipe');
         $app_user->add_cap('edit_setting');
-        $app_user->add_cap('edit_settings');
+        $app_user->add_cap('edit_setting');
         $app_user->add_cap('edit_shoplist');
-        $app_user->add_cap('edit_shoplists');
-        $app_user->add_cap('read_private_pages');
+        $app_user->add_cap('edit_shoplist');
+        $app_user->add_cap('read_private_page');
+        $app_user->add_cap('publish_setting');
+        $app_user->add_cap('edit_setting');
+        $app_user->add_cap('read_private_settings');
 
 
         // This part of a code gives administrator an access to
@@ -289,7 +290,7 @@
                 'capability_type'   => 'setting',
                 'has_archive'       => true,
                 'supports'          => array(
-                    'title', 'thumbnail',
+                    'title', 'thumbnail', 'author',
                 )
             )
         );
