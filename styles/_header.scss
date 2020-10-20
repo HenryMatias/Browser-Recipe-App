@@ -71,3 +71,19 @@ html {
     }
 }
 
+@media (max-width: 450px) {
+    #header-home {
+        #header-home-nav {
+            nav {
+                #login-input {
+                    margin-top: 5px;
+                    border: 2px solid $purple;
+                    right: 0%;
+                    a {
+                        color: $purple;
+                    }
+                }
+            }
+        }
+    }
+}
