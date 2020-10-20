@@ -14,7 +14,7 @@
             <div class="col-md-6" id="frontpage-header-right">
                 <div class="header-right-cta">
                     <p>
-                        Tutustu nyt
+                        Tulossa Pian
                     </p>
                     <a href="#">
                         <i class="far fa-arrow-alt-circle-right"></i>

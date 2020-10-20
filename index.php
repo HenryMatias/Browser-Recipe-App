@@ -14,7 +14,7 @@
             <div class="col-md-6" id="frontpage-header-right">
                 <div class="header-right-cta">
                     <p>
-                        Tutustu nyt
+                        Tutustu Pian
                     </p>
                     <a href="#">
                         <i class="far fa-arrow-alt-circle-right"></i>
@@ -28,7 +28,7 @@
     <div id="section2-right-background"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col1">
+            <div class="col-sm-6 col1">
                 <div class="mobile">
                     <img src="<?php echo get_template_directory_uri(); ?>/images/phone_preview1.png" alt="">
                 </div>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col2">
+            <div class="col-sm-6 col2">
                 <div class="mobile-text">
                     <h2><span>
                     Tallenna
