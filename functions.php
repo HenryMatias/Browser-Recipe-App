@@ -20,6 +20,9 @@
     wp_enqueue_style('styles'); // Enqueue it!
     // --> Change microtime to version number (for example '1.1') before release!
 
+    //Scroll Magic
+    wp_enqueue_script("Scroll Magic", 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js');
+
     //Bootstrap
     wp_enqueue_style("bootstrap-stylesheet", 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
     wp_enqueue_script("jquery", 'https://code.jquery.com/jquery-3.5.1.min.js');
@@ -32,8 +35,16 @@
     add_action('wp_enqueue_scripts', 'reseptini_setup');
 
 
+    //////////////////////////////////////////////////////////
+    ////////            adding login support          ////////
+    ////////     --> Redirect to Application page     ////////
+    //////////////////////////////////////////////////////////
 
 
+    function login_redirect( $redirect_to, $request, $user ){
+        return home_url('application');
+    }
+    add_filter( 'login_redirect', 'login_redirect', 10, 3 );
 
 
     //////////////////////////////////////////////////////////
