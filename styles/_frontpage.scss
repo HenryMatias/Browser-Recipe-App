@@ -1,5 +1,6 @@
 #section1 {
     height: 90vh;
+    min-height: 1000px;
     position: relative;
     display: block;
     @include display(flex, center,center);
@@ -23,9 +24,11 @@
         right: 0%;
         top: 0%;
         margin-top: -6vh;
+        min-height: 1100px;
     }
     #frontpage-header {
         height: 60vh;
+        min-height: 800px;
         position: relative;
         img {
             position: absolute;
@@ -57,7 +60,7 @@
             }
             #frontpage-header-right {
                 @include display(flex, flex-end, center);
-                margin-bottom: 15%;
+                margin-bottom: 0%;
                 .header-right-cta {
                     text-align: center;
                     display: flex;
@@ -84,9 +87,11 @@
     height: 100vh;
     position: relative;
     overflow: hidden;
+    min-height: 1250px!important;
     #section2-right-background {
         width: 50vw;
         height: 100vh;
+        min-height: 1250px!important;
         background: rgb(158,0,141);
         background: linear-gradient(90deg, rgba(158,0,141,1) 0%, rgba(241,83,181,1) 83%);   
         position: absolute;
@@ -95,9 +100,11 @@
     }
     .container {
         height: 100vh;
+        min-height: 1250px!important;
         background-color: white;
         position: relative;
         box-shadow: 0px 20px 20px 2px #727272;
+        padding-top: 80px;
         .row {
             .col1 {
                 padding: 0px;
@@ -278,6 +285,7 @@
                 }
                 .mobile {
                     height: 55vh;
+                    min-height: 570px;
                     position: relative;
                     img {
                         margin-top: -2vh;
@@ -293,10 +301,12 @@
 }
 #section3 {
     height: 100vh;
+    min-height: 1200px!important;
     position: relative;
     overflow: hidden;
     .container {
         height: 100vh;
+        min-height: 1200px!important;
         background-color: white;
         position: relative;
         box-shadow: 0px -4px 20px 2px #727272;
@@ -558,10 +568,12 @@
 }
 #section4 {
     height: 100vh;
+    min-height: 1200px!important;
     position: relative;
     overflow: hidden;
     .container {
         height: 100vh;
+        min-height: 1200px!important;
         background-color: white;
         position: relative;
         box-shadow: 0px -4px 20px 2px #727272;
@@ -695,5 +707,178 @@
         height: 80vh;
         background-color: transparent;
         position: relative;
+    }
+}
+
+@media (max-width: 450px) {
+    #section1 {
+        min-height: 90vh;
+        overflow: hidden!important;
+        #section1-right-background {
+            display: none;
+        }
+        .container {
+            img {
+                width: 800px!important;
+                margin-left: -400px!important;
+                margin-top: -200px!important;
+            }
+            .row {
+                height: 100vh!important;
+                #frontpage-header-left {
+                    display: flex;
+                    align-items: center;
+                    .heading {
+                        width: 100%!important;
+                        position: relative;
+                        @include display (grid, center,center);
+                        h1 {
+                            font-size: 70px!important;
+                        }
+                    }
+                }
+                #frontpage-header-right {
+                    .header-right-cta {
+                        display: none!important;
+                        p {
+                            color: $purple!important;
+                        }
+                        a {
+                            i {
+                                color: $purple!important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #section2 {
+        height: 100%!important;
+        .container {
+            height: 100%!important;
+            .row {
+                .col1 {
+                    .mobile {
+                        img {
+                            right: 50%!important;
+                            margin-right: -160px!important;
+                        }
+                    }
+                    .mobile-text {
+                        height: 100%!important;
+                        min-height: 100px!important;
+                        margin: 10px auto;
+                        width: 300px;
+                    }
+                }
+                .col2 {
+                    .mobile {
+                        display: none!important;
+                    }
+                    .mobile-text {
+                        margin: 10px auto;
+                        width: 300px;
+                        padding: 10px 0px;
+                    }
+                }
+            }
+        }
+    }
+    #section3 {
+        min-height: 830px!important;
+        .container {
+            min-height: 667px!important;
+            height: 960px;
+            box-shadow: none;
+            .deco-circle-1,
+            .deco-circle-2,
+            .deco-circle-3,
+            .deco-circle-4 {
+                display: none;
+            }
+            .background-circle-1 {
+                width: 350px;
+                height: 350px;
+                top: 50%;
+                margin-top: -175px;
+                left: 50%;
+                margin-left: -175px;
+            }
+            .background-circle-2 {
+                width: 300px;
+                height: 300px;
+                top: 50%;
+                margin-top: -150px;
+                left: 50%;
+                margin-left: -150px;
+            }
+            #circlebuttons {
+                display: none;
+            }
+            .heading {
+                padding: 50px 0 80px;
+            }
+            .carousel {
+                height: 100%;
+                position: relative;
+                top: 0%;
+                margin-top: 0px;
+                .carousel-indicators {
+                    bottom: 43%!important;
+                }
+                .carousel-inner {
+                    .carousel-item {
+                        img {
+                            max-width: 250px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #section4 {
+        height: 100%;
+        min-height: 400px;
+        .container {
+            height: 100%;
+            min-height: 400px;
+            .discussion {
+                width: 100%;
+                padding: 40px 15px;
+                .bubble {
+                    width: 80vw;
+                }
+                .bubble:nth-last-child(1) {
+                    margin-bottom: 80px;
+                }
+            }
+            .send-question {
+                .input-area {
+                    width: 95%;
+                    button {
+                        svg {
+                            transform: scale(2.4);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #section5 {
+        #section5-middle-background {
+            transform: rotate(0deg);
+        }
+        .container {
+            box-shadow: none;
+            h3 {
+                font-size: 50px;
+                left: 50%;
+                margin-left: -157px;
+            }
+            p {
+                padding-top: 100px;
+            }
+        }
     }
 }
