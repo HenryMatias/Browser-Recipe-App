@@ -8,7 +8,7 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/images/logo_purple.png" alt="">
             </a>
             <div id="login-input">
-                <a href="#">Kirjaudu</a>
+                <a href="wp-login.php">Kirjaudu</a>
             </div>
         </nav>
     </div>
