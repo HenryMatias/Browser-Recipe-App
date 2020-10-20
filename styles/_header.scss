@@ -1,17 +1,49 @@
-// headerin tyylit
+// header styles
 
 html {
     scroll-behavior: smooth;
   }
-  
+
+// Frontpage styles
+#header-home {
+    background: transparent!important;
+    height: 6vh;
+    #header-home-nav {
+        nav {
+            background-color: transparent!important;
+            padding: 0px;
+            a {
+                img {
+                    height: 5vh;
+                }
+            }
+            #login-input {
+                position: absolute;
+                right: 5%;
+                z-index: 1;
+                border: 2px solid white;
+                text-align: center;
+                padding: 4px 20px;
+                border-radius: 20px;
+                a {
+                    color: white;
+                    font-family: $font-nunito;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+
+//App works only with a mobile phone
 @media (min-width: 600px) {
-    html {
+    #body-app {
         display: none;
     }
 }
 
 @media (max-width: 600px) {
-    header {
+    #header-app {
         overflow: hidden;
         .header-one {
             height: 36vh;
@@ -39,3 +71,19 @@ html {
     }
 }
 
+@media (max-width: 450px) {
+    #header-home {
+        #header-home-nav {
+            nav {
+                #login-input {
+                    margin-top: 5px;
+                    border: 2px solid $purple;
+                    right: 0%;
+                    a {
+                        color: $purple;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,5 +1,8 @@
 <h1>Browser-Recipe-App</h1>
 
+<b>Version 1.3</b><br>
+Application has now its own frontpage and users can now login to their account. The content will be visible only for those users that has an account to this service.
+
 <b>Version 1.2</b><br>
 Users access to different parts of WordPress has been limited to custom posts only.
 

@@ -53,12 +53,12 @@
 
          for (var i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener('click', handleClick, false);
-          }
+          };
           
           function handleClick() {
             this.parentElement.parentElement.style.height = '0px';
             this.parentElement.parentElement.style.transition = '0.7s';
-          }
+          };
 
          
 

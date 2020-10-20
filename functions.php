@@ -20,6 +20,9 @@
     wp_enqueue_style('styles'); // Enqueue it!
     // --> Change microtime to version number (for example '1.1') before release!
 
+    //Scroll Magic
+    wp_enqueue_script("Scroll Magic", 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js');
+
     //Bootstrap
     wp_enqueue_style("bootstrap-stylesheet", 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
     wp_enqueue_script("jquery", 'https://code.jquery.com/jquery-3.5.1.min.js');
@@ -32,8 +35,16 @@
     add_action('wp_enqueue_scripts', 'reseptini_setup');
 
 
+    //////////////////////////////////////////////////////////
+    ////////            adding login support          ////////
+    ////////     --> Redirect to Application page     ////////
+    //////////////////////////////////////////////////////////
 
 
+    function login_redirect( $redirect_to, $request, $user ){
+        return home_url('application');
+    }
+    add_filter( 'login_redirect', 'login_redirect', 10, 3 );
 
 
     //////////////////////////////////////////////////////////
@@ -99,10 +110,24 @@
         $app_user->add_cap('read');
         $app_user->add_cap('edit_recipe');
         $app_user->add_cap('edit_recipes');
+        $app_user->add_cap('read_private_recipe');
+        $app_user->add_cap('read_private_recipes');
+        $app_user->add_cap('edit_private_recipe');
+        $app_user->add_cap('edit_private_recipes');
+        $app_user->add_cap('publish_recipes');
+        $app_user->add_cap('delete_recipe');
         $app_user->add_cap('edit_setting');
         $app_user->add_cap('edit_settings');
+        $app_user->add_cap('publish_setting');
+        $app_user->add_cap('publish_settings');
         $app_user->add_cap('edit_shoplist');
         $app_user->add_cap('edit_shoplists');
+        $app_user->add_cap('read_private_page');
+        $app_user->add_cap('read_private_pages');
+        $app_user->add_cap('publish_setting');
+        $app_user->add_cap('edit_setting');
+        $app_user->add_cap('read_private_settings');
+
 
         // This part of a code gives administrator an access to
         // handle all the posts that are been sent to custom
@@ -111,10 +136,20 @@
         $admin = get_role('administrator');
         $admin->add_cap('edit_recipe');
         $admin->add_cap('edit_recipes');
+        $admin->add_cap('publish_recipes');
+        $admin->add_cap('delete_recipes');
         $admin->add_cap('edit_others_recipe');
         $admin->add_cap('edit_others_recipes');
         $admin->add_cap('edit_setting');
         $admin->add_cap('edit_settings');
+        $admin->add_cap('publish_setting');
+        $admin->add_cap('delete_setting');
+        $admin->add_cap('publish_settings');
+        $admin->add_cap('delete_settings');
+        $admin->add_cap('publish_others_setting');
+        $admin->add_cap('delete_others_setting');
+        $admin->add_cap('publish_others_settings');
+        $admin->add_cap('delete_others_settings');
         $admin->add_cap('edit_others_setting');
         $admin->add_cap('edit_others_settings');
         $admin->add_cap('edit_shoplist');
@@ -149,7 +184,7 @@
                 'capability_type'   => 'recipe',
                 'has_archive'       => true,
                 'supports'          => array(
-                    'title', 'thumbnail',
+                    'title', 'thumbnail', 'author'
                 )
             )
         );
@@ -280,7 +315,7 @@
                 'capability_type'   => 'setting',
                 'has_archive'       => true,
                 'supports'          => array(
-                    'title', 'thumbnail',
+                    'title', 'thumbnail', 'author',
                 )
             )
         );
@@ -498,7 +533,20 @@
 
     }
     </script>
-
+    
     <?php
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 

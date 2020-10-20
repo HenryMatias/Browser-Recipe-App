@@ -1,13 +1,15 @@
 <?php 
     $args = array(
     'post_type' => 'setting',
-    'posts_per_page' => 1,
+    'posts_per_page' => 1000,
     'orderby' => 'date',
     'order' => 'ASC',
     );
     $settings = new WP_Query($args);
     while ($settings->have_posts()) {
     $settings->the_post();
+
+    if( $post->post_author == $current_user->ID ) {
 ?>
 
 <div class="user-settings">
@@ -70,6 +72,7 @@
 </div>
 
 <?php
+    }
 }
 wp_reset_query();
 ?>
