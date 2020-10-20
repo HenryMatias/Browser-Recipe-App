@@ -166,7 +166,14 @@
             maintheme.setAttribute("value", "checked");
         }
         return;
-      }
+      };
+
+     
+
+
+
+
+
 
 
 
@@ -180,10 +187,12 @@
                 
                 // DOM ready, take it away
 
-                $(".remove").ajaxForm({url: '#recipeareaid', type: 'post'})
+                $(".remove").ajaxForm({url: '#recipeareaid', type: 'post'});
 
                 
             });
+
+            
             
         })(jQuery, this);
 
