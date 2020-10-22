@@ -34,7 +34,7 @@ function addIngredient() {
     };
 
 
-    // Tämä funktion hakee vaiheet taulukkoon luotaessa uutta reseptiä
+// Tämä funktion hakee vaiheet taulukkoon luotaessa uutta reseptiä
 var numberphase = 1;
 
 function addPhase() {
