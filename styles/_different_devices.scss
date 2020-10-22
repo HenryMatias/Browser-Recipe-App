@@ -1,0 +1,12 @@
+.tablet-device {
+    width: 1366px;
+    height: 900px;
+    overflow: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -450px;
+    margin-left: -683px;
+    box-shadow: 0px 20px 20px 2px #727272;
+    transition: 0.5s;
+}
