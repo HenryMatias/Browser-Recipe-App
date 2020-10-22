@@ -26,7 +26,7 @@
                     <i class="fas fa-utensils" style="color: <?php echo "$color1" ?>;"></i>
                 </button>
             </form>
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" class="salty">
                 <button type="submit" class="recipe-filter white-bg" name="filterrecipe" id="salty-food-filter" href="#" data-action="filter" data-type="categories" value="salty" data-value="salty">
                     <i class="fas fa-hamburger" style="color: <?php echo "$color1" ?>;"></i>
                 </button>
