@@ -15,13 +15,10 @@
     wp_enqueue_script("fontawesome", 'https://kit.fontawesome.com/0c707c1c12.js');
 
     // Main style and js
-    wp_enqueue_script("main", get_theme_file_uri('/assets/js/script.js'), NULL, '1.0.0', true);
+    wp_enqueue_script("main", get_theme_file_uri('/assets/js/script.js'), NULL, '1.0', true);
     wp_register_style('styles', get_template_directory_uri() . '/assets/css/style.css', array(), 'microtime()', 'all');
     wp_enqueue_style('styles'); // Enqueue it!
     // --> Change microtime to version number (for example '1.1') before release!
-
-    //Scroll Magic
-    wp_enqueue_script("Scroll Magic", 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js');
 
     //Bootstrap
     wp_enqueue_style("bootstrap-stylesheet", 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
@@ -363,11 +360,17 @@
 
 
     if(isset($_POST['submitsingulardelete'])) {
+        
+        function singular_delete() {
 
-        $post_id = $_POST['shoplistid'];
-        $rowtodelete = $_POST['shoplistrowindex'];
+            $post_id = $_POST['shoplistid'];
+            $rowtodelete = $_POST['shoplistrowindex'];
 
-        delete_row('ostettavat_tuotteet', $rowtodelete, $post_id);
+            delete_row('ostettavat_tuotteet', $rowtodelete, $post_id);
+
+        }
+
+        add_action('init', 'singular_delete');
 
     };
 
@@ -518,7 +521,7 @@
     function fetchResults(){
         var keyword = jQuery('#searchInput').val();
         if(keyword == ""){
-            jQuery('#datafetch').html("");
+            jQuery('#datafetch').html("MOI");
         } else {
             jQuery.ajax({
                 url: '<?php echo admin_url('admin-ajax.php'); ?>',
@@ -538,6 +541,16 @@
     }
 
 
+
+
+    // Adding functionality to salty recipe fetch
+    add_action('wp_ajax_salty_recipe_fetch' , 'salty_recipe_fetch');
+    add_action('wp_ajax_nopriv_salty_recipe_fetch','salty_recipe_fetch');
+    function salty_recipe_fetch() { 
+
+        include 'assets/sections/recipe-salty-card.php';
+
+    }
 
 
 
