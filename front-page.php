@@ -14,7 +14,7 @@
             <div class="col-md-6" id="frontpage-header-right">
                 <div class="header-right-cta">
                     <p>
-                        Tulossa Pian
+                        <?php the_field('coming_soon'); ?>
                     </p>
                     <a href="#">
                         <i class="far fa-arrow-alt-circle-right"></i>
@@ -35,10 +35,11 @@
                 <div class="mobile-text">
                     <div class="heading">
                         <h3><span>
-                        Rakastamme
+                            <?php the_field('first_heading_span'); ?>
                         </span>
                         <br>
-                        Puhelimia ja kokemusta</h3>
+                            <?php the_field('first_heading'); ?>
+                        </h3>
                     </div>
                     <div class="icons">
                         <div>
@@ -62,10 +63,7 @@
                     </div>
                     <div class="content">
                         <p>
-                            Toistaiseksi palvelumme toimii vain ja ainoastaan puhelimilla, mutta verkkosivumme skaalautuvat kaikille laitteille. Koska palvelu on toteutettu harrastus mielessä, tulee sivujen sisältö kokemaan muutoksia ajan saatossa parantaaksemme palvelun ja kokemuksen laatua.
-                        </p>
-                        <p>
-                            Koska palvelu on toteutettu puhtaasti käyttäjien ehdoilla, kuulemme mieluusti kehitysehdotuksia palvelun laadun ja kokemuksen parantamiseksi!
+                            <?php the_field('first_heading_content'); ?>
                         </p>
                     </div>
                 </div>
@@ -73,10 +71,11 @@
             <div class="col-md-6 col2">
                 <div class="mobile-text">
                     <h2><span>
-                    Tallenna
+                        <?php the_field('second_heading_span'); ?>
                     </span>
                     <br>
-                    Reseptisi ja kauppalista</h2>
+                        <?php the_field('second_heading'); ?>
+                    </h2>
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="a-tab" data-toggle="tab" href="#a-content" role="tab" aria-controls="a" aria-selected="true">
@@ -103,20 +102,17 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="a-content" role="tabpanel" aria-labelledby="a-tab">
                             <p>
-                            <b>Reseptini.com</b> on kuin oma, henkilökohtainen keittokirja, johon voit tallentaa omat reseptit talteen tulevia ruoanlaittohetkiä varten. Reseptini-ohjelma luo sinulle luettelon kaikista tallentamistasi resepteistäsi, ja voit halutessasi suodattaa tulokset suolaisiin tai makeisiin ohjeisiin.
-                            </p>
-                            <p>
-                            Reseptien lisääminen on helppoa ja vaivatonta; listaa vain tarvittavat ainekset sekä ohjeet kyseisen ruoan valmistukseen ja reseptisi on valmis! Voit jalostaa ruoasta entistä paremman muokkaamalla tallentaamaasi reseptiäsi milloin tahansa.    
+                                <?php the_field('second_heading_content'); ?>
                             </p>
                         </div>
                         <div class="tab-pane fade" id="b-content" role="tabpanel" aria-labelledby="b-tab">
                             <p>
-                            Resepteistä voit lisätä tarvitsemasi raaka-aineet suoraan henkilökohtaiseen ostoslistaasi, missä kaikki tarvitemasi tuotteet pysyvät tallessa seuraavaa kaupassakäyntiä varten.
+                                <?php the_field('second_heading_content_2'); ?>
                             </p>
                         </div>
                         <div class="tab-pane fade" id="c-content" role="tabpanel" aria-labelledby="c-tab">
                             <p>
-                            Jotta Reseptini olisi juuri sinun näköinen, voit halutessasi valita itsellesi vaihtoehtoisen taustakuvan sovellukseesi. Tämän lisäksi sinulla on mahdollisuus valita kaksi lempiväriäsi, jolloin palvelun tekstit ja kuvakkeet vaihtavat väriä sinun asettamiesi värien mukaiseksi
+                                <?php the_field('second_heading_content_3'); ?>
                             </p>
                         </div>
                     </div>
@@ -184,7 +180,7 @@
                     <svg>
                     <path d="m20,200 a15,3 0 0 1 170,00" id=path style=opacity:0 />
                     <text><textPath xlink:href=#path>
-                        SEURAAVA
+                        <?php the_field('next'); ?>
                     </textPath></text>
                     </svg>
                 </a>
@@ -207,7 +203,7 @@
                     <svg>
                     <path d="M 45 0 Q 4 62 42 200" id=path2 style=opacity:0 />
                     <text><textPath xlink:href=#path2>
-                        EDELLINEN
+                        <?php the_field('previous'); ?>
                     </textPath></text>
                     </svg>
                 </a>
@@ -255,43 +251,43 @@
         <div class="discussion">
             <div class="bubble ask">
                 <p>
-                Mitä tälläinen ohjelman käyttäminen mahtaa minulle maksaa?
+                    <?php the_field('question_1'); ?>
                 </p>
             </div>
             <div class="bubble answer">
                 <p>
-                Ei yhtikäs mitään! Reseptini on täysin ilmainen, eikä se vaadi sinulta muuta kuin sähköpostiosoitetta rekisteröitymistä varten.
+                    <?php the_field('answer_1'); ?>
                 </p>
             </div>
             <div class="bubble ask">
                 <p>
-                No mitäs se Reseptini tästä sitten hyötyy?
+                    <?php the_field('question_2'); ?>
                 </p>
             </div>
             <div class="bubble answer">
                 <p>
-                Tarkoituksemme ei ole hyötyä tästä millään tavoin. Palvelu on maksuton eikä itsestään ole tarvetta luovuttaa minkäänlaisia tietoja niin halutessaan. Sähköpostiosoitettakin tarvitset vain rekisteröitymiseen. Niin, eikä tarvii muuten pelätä että me alettaisiin lähettelemään mainoksia sähköpostiisi. Se on vaan siihen rekisteröitymiseen.
+                    <?php the_field('answer_2'); ?>
                 </p>
             </div>
             <div class="bubble ask">
                 <p>
-                Mistä tämä sivusto on saanut alkunsa, millainen homma?
+                    <?php the_field('question_3'); ?>
                 </p>
             </div>
             <div class="bubble answer">
                 <p>
-                Allekirjoittaneelle tultiin esittämään pyyntö omasta sovelluksesta, johon voisi tallentaa omat reseptit ja kauppalistan. Koska etsin vielä ensimmäistä työpaikkaa juniorina tai harkkarina verkkosivujen tekijänä, päätin toteuttaa sivut siten, että niistä voisi hyötyä kaikki.
+                    <?php the_field('answer_3'); ?>
                 </p>
             </div>
             <div class="bubble answer">
                 <p>
-                Psst! Jos tiedät paikan jossa voisin oikeasti päästä alalle sisään niin minut saa ilmiantaa!
+                    <?php the_field('answer_4'); ?>
                 </p>
             </div>
         </div>
         <div class="send-question">
             <div class="input-area">
-                <input type="text" placeholder="Yks juttu tuli mieleen...">
+                <input type="text" placeholder="<?php the_field('make_question_placeholder'); ?>">
                 <button type="send">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-11.5.5a.5.5 0 0 1 0-1h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5z"/>
@@ -305,12 +301,9 @@
 <div id="section5">
     <div id="section5-middle-background"></div>
     <div class="container">
-        <h3>Kiinnostuitko?</h3>
-        <p>Tulossa Pian!<br>Sivut avautuvat viimeistään 01.12.2020</p>
+        <h3><?php the_field('interested'); ?></h3>
+        <p><?php the_field('coming_soon_content'); ?></p>
     </div>
 </div>
-<div id="section6">
-    <div class="container">
-        
-    </div>
-</div>
+
+<?php get_footer(); ?>

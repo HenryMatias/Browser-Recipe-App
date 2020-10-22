@@ -9,26 +9,61 @@ html {
     background: transparent!important;
     height: 6vh;
     #header-home-nav {
+        height: 100%;
+        display: flex;
+        align-items: center;
         nav {
+            width: 100%;
             background-color: transparent!important;
             padding: 0px;
-            a {
-                img {
-                    height: 5vh;
+            display: flex;
+            justify-content: space-between;
+            .adjust-display {
+                button {
+                    border: none;
+                    background-color: white;
+                    width: 50px;
+                    height: 50px;
+                    svg {
+                        color: $purple;
+                        transform: scale(2.0);
+                    }
+                }
+                button:nth-child(1) {
+                    margin-right: 10px;
+                    svg {
+                        transform: scale(2.2);
+                    }
                 }
             }
-            #login-input {
-                position: absolute;
-                right: 5%;
-                z-index: 1;
-                border: 2px solid white;
-                text-align: center;
-                padding: 4px 20px;
-                border-radius: 20px;
-                a {
-                    color: white;
-                    font-family: $font-nunito;
-                    font-weight: 700;
+            .menu-right {
+                display: flex;
+                align-items: center;
+                .language-selection {
+                    z-index: 1;
+                    select {
+                        border: 2px solid white;
+                        text-align: center;
+                        padding: 4px 20px;
+                        border-radius: 20px;
+                        color: $purple;
+                        font-family: $font-nunito;
+                        font-weight: 700;
+                        margin-right: 5px;
+                        margin-bottom: 0px;
+                    }
+                }
+                #login-input {
+                    z-index: 1;
+                    border: 2px solid white;
+                    text-align: center;
+                    padding: 4px 20px;
+                    border-radius: 20px;
+                    a {
+                        color: white;
+                        font-family: $font-nunito;
+                        font-weight: 700;
+                    }
                 }
             }
         }
