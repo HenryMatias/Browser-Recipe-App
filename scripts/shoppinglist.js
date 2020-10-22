@@ -33,7 +33,6 @@
         document.getElementById('amountofshoplistrows').value++;
         };
 
-
         // Tämä laskee ostoslistan tuotteiden lukumäärän valikkoon
 
         var amount = document.getElementById("shoplistid").childElementCount;
@@ -42,7 +41,7 @@
         } else {
             document.getElementById("amountofshoprows").style.display = "block";
             document.getElementById("listamountfooterid").innerHTML = amount;
-        }
+        };
 
 
 
