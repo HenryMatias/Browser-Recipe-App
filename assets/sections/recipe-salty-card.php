@@ -2,7 +2,7 @@
     $args = array(
     'post_type' => 'recipe',
     'posts_per_page' => 1000,
-    'orderby'   => 'meta_value_num',
+    'orderby'   => 'title',
     'meta_key'  => 'laji',
     'order' => 'ASC',
     'meta_query' => array(
