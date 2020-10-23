@@ -88,6 +88,19 @@ html {
     }
 }
 
+@media (max-width: 1200px) {
+    #header-home {
+        #header-home-nav {
+            nav {
+                justify-content: flex-end;
+                .menu-left {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
 //App works only with a mobile phone
 @media (min-width: 600px) {
     #body-app {
@@ -129,7 +142,6 @@ html {
         #header-home-nav {
             margin: 5px 0px;
             nav {
-                justify-content: flex-end;
                 .menu-right {
                     .language-selection {
                         select {
