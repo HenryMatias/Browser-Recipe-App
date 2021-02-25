@@ -5,7 +5,7 @@ const { src, dest, watch, series, parallel } = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
+// const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
@@ -34,7 +34,7 @@ function jsTask(){
         //,'!' + 'includes/js/jquery.min.js', // to exclude any specific files
         ])
         .pipe(concat('script.js'))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(dest('assets/js/')
     );
 }

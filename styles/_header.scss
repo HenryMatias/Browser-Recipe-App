@@ -1,17 +1,115 @@
-// headerin tyylit
+// header styles
 
 html {
     scroll-behavior: smooth;
   }
-  
+
+// Frontpage styles
+#header-home {
+    background: transparent!important;
+    height: 6vh;
+    #header-home-nav {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        nav {
+            width: 100%;
+            background-color: transparent!important;
+            padding: 0px;
+            display: flex;
+            justify-content: space-between;
+            .menu-left {
+                .adjust-display {
+                    ul {
+                        border: none;
+                        li {
+                            .nav-link {
+                                border: none;
+                                svg {
+                                    color: $light-grey-3;
+                                }
+                            }
+                            .active {
+                                border: none;
+                                border-radius: 5px;
+                                box-shadow: 0px 0px 5px 1px $light-grey-2;
+                                svg {
+                                    color: $purple;
+                                    transform: scale(1.3);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .menu-right {
+                display: flex;
+                align-items: center;
+                .language-selection {
+                    z-index: 1;
+                    select {
+                        border: 2px solid white;
+                        text-align: center;
+                        padding: 4px 20px;
+                        border-radius: 20px;
+                        color: $purple;
+                        font-family: $font-nunito;
+                        font-weight: 700;
+                        margin-right: 5px;
+                        margin-bottom: 0px;
+                    }
+                }
+                #login-input {
+                    z-index: 1;
+                    border: 2px solid white;
+                    text-align: center;
+                    padding: 4px 20px;
+                    border-radius: 20px;
+                    transition: 0.1s ease-in;
+                    &:hover {
+                        background-color: white;
+                        transition: 0.1s ease-in;
+                        a {
+                            color: $purple;
+                        }
+                    }
+                    a {
+                        color: white;
+                        font-family: $font-nunito;
+                        font-weight: 700;
+                        text-decoration: none;
+                    }
+                    a.mobile {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    #header-home {
+        #header-home-nav {
+            nav {
+                justify-content: flex-end;
+                .menu-left {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+//App works only with a mobile phone
 @media (min-width: 600px) {
-    html {
+    #body-app {
         display: none;
     }
 }
 
 @media (max-width: 600px) {
-    header {
+    #header-app {
         overflow: hidden;
         .header-one {
             height: 36vh;
@@ -39,3 +137,44 @@ html {
     }
 }
 
+@media (max-width: 450px) {
+    #header-home {
+        #header-home-nav {
+            margin: 5px 0px;
+            nav {
+                .menu-right {
+                    .language-selection {
+                        select {
+                            border: 2px solid $purple!important;
+                            background-color: white;
+                        }
+                    }
+                    #login-input {
+                        border: 2px solid $purple!important;
+                        right: 0%;
+                        padding: 0px;
+                        background-color: $purple;
+                        width: 36px;
+                        height: 36px;
+                        position: relative;
+                        a {
+                            color: white!important;
+                            transform: scale(1.5);
+                            position: absolute;
+                            left: 50%;
+                            margin-left: -7px;
+                            top: 50%;
+                            margin-top: -14px;
+                        }
+                        a.mobile { 
+                            display: block;
+                        }
+                        a.desktop { 
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

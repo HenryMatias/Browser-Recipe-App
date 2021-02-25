@@ -1,50 +1,20 @@
 <?php
 
+// Include scripts
+include get_template_directory() . '/inc/enqueue-scripts.php';
 
-    ////////////////////////////////////////////////////////////////
-    ////////         adding the CSS and JS files         ///////////
-    ////////////////////////////////////////////////////////////////
+// Include styles
+include get_template_directory() . '/inc/enqueue-styles.php';
 
-    function reseptini_setup() {
+// include login redirection
+include get_template_directory() . '/theme/admin/login.php';
 
-    // Google fonts and Fontawesome
-    wp_enqueue_style('google-fonts-lato', '//fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap');
-    wp_enqueue_style('google-fonts-pacifico', '//fonts.googleapis.com/css2?family=Pacifico&display=swap');
-    wp_enqueue_style('google-fonts-baloo-tammudu-2', '//fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;800&display=swap');
-    wp_enqueue_style('google-fonts-nunito', '//fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
-    wp_enqueue_script("fontawesome", 'https://kit.fontawesome.com/0c707c1c12.js');
+// include user roles
+include get_template_directory() . '/theme/admin/roles.php';
 
-    // Main style and js
-    wp_enqueue_script("main", get_theme_file_uri('/assets/js/script.js'), NULL, '1.0.0', true);
-    wp_register_style('styles', get_template_directory_uri() . '/assets/css/style.css', array(), 'microtime()', 'all');
-    wp_enqueue_style('styles'); // Enqueue it!
-    // --> Change microtime to version number (for example '1.1') before release!
+// include custom menus
+include get_template_directory() . '/theme/menus.php';
 
-    //Bootstrap
-    wp_enqueue_style("bootstrap-stylesheet", 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
-    wp_enqueue_script("jquery", 'https://code.jquery.com/jquery-3.5.1.min.js');
-    wp_enqueue_script("jquery-form-plugin", 'https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js');
-    wp_enqueue_script("bootstrap-popper", 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js');
-    wp_enqueue_script("bootstrap-js", 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js');
-
-    }
-
-    add_action('wp_enqueue_scripts', 'reseptini_setup');
-
-
-
-
-
-
-    //////////////////////////////////////////////////////////
-    ////////            adding menu support           ////////
-    //////////////////////////////////////////////////////////
-
-
-    function wpb_custom_new_menu() {
-        register_nav_menu('my-custom-menu',__( 'My Custom Menu' ));
-      }
-      add_action( 'init', 'wpb_custom_new_menu' );
 
 
     //////////////////////////////////////////////////////////
@@ -79,54 +49,6 @@
     add_action('after_setup_theme', 'ar_init');
 
 
-    ///////////////////////////////////////////////////////////
-    ////////     adding Recipe App user support       /////////
-    ////////     --> This function creates a custom   /////////
-    ////////     user type to Repestini aoolication   /////////
-    ////////     and he will be given limited access  /////////
-    ////////     to WordPress                         /////////
-    ///////////////////////////////////////////////////////////
-
-
-    function receptini_create_custom_user() {
-
-        // This part creates a role called Recipe App user and 
-        // he will be given access to make changes only to
-        // custom posts in WordPress 
-
-        add_role('recipeuser', 'Reseptini käyttäjä');
-        $app_user = get_role('recipeuser');
-        $app_user->add_cap('read');
-        $app_user->add_cap('edit_recipe');
-        $app_user->add_cap('edit_recipes');
-        $app_user->add_cap('edit_setting');
-        $app_user->add_cap('edit_settings');
-        $app_user->add_cap('edit_shoplist');
-        $app_user->add_cap('edit_shoplists');
-
-        // This part of a code gives administrator an access to
-        // handle all the posts that are been sent to custom
-        // posts in Wordpress
-
-        $admin = get_role('administrator');
-        $admin->add_cap('edit_recipe');
-        $admin->add_cap('edit_recipes');
-        $admin->add_cap('edit_others_recipe');
-        $admin->add_cap('edit_others_recipes');
-        $admin->add_cap('edit_setting');
-        $admin->add_cap('edit_settings');
-        $admin->add_cap('edit_others_setting');
-        $admin->add_cap('edit_others_settings');
-        $admin->add_cap('edit_shoplist');
-        $admin->add_cap('edit_shoplists');
-        $admin->add_cap('edit_others_shoplist');
-        $admin->add_cap('edit_others_shoplists');
-
-    };
-
-    add_action('init', 'receptini_create_custom_user');
-
-
     //////////////////////////////////////////////////////////
     ////////           adding recipe support          ////////
     ////////    --> This function makes an custom     ////////
@@ -149,7 +71,7 @@
                 'capability_type'   => 'recipe',
                 'has_archive'       => true,
                 'supports'          => array(
-                    'title', 'thumbnail',
+                    'title', 'thumbnail', 'author'
                 )
             )
         );
@@ -280,7 +202,7 @@
                 'capability_type'   => 'setting',
                 'has_archive'       => true,
                 'supports'          => array(
-                    'title', 'thumbnail',
+                    'title', 'thumbnail', 'author',
                 )
             )
         );
@@ -328,11 +250,17 @@
 
 
     if(isset($_POST['submitsingulardelete'])) {
+        
+        function singular_delete() {
 
-        $post_id = $_POST['shoplistid'];
-        $rowtodelete = $_POST['shoplistrowindex'];
+            $post_id = $_POST['shoplistid'];
+            $rowtodelete = $_POST['shoplistrowindex'];
 
-        delete_row('ostettavat_tuotteet', $rowtodelete, $post_id);
+            delete_row('ostettavat_tuotteet', $rowtodelete, $post_id);
+
+        }
+
+        add_action('init', 'singular_delete');
 
     };
 
@@ -457,7 +385,14 @@
     add_action('wp_ajax_nopriv_data_fetch','data_fetch');
     function data_fetch(){
 
-        $the_query = new WP_Query( array( 'posts_per_page' => 5, 's' => esc_attr( $_POST['keyword'] ), 'post_type' => 'recipe' ) );
+        $the_query = new WP_Query(
+            array (
+                'posts_per_page' => 5,
+                's' => esc_attr( $_POST['keyword'] ),
+                'post_type' => 'recipe' 
+            ) 
+        );
+        
         if( $the_query->have_posts() ) :
             while( $the_query->have_posts() ): $the_query->the_post(); ?>
 
@@ -483,7 +418,7 @@
     function fetchResults(){
         var keyword = jQuery('#searchInput').val();
         if(keyword == ""){
-            jQuery('#datafetch').html("");
+            jQuery('#datafetch').html("Ei tuloksia haulle");
         } else {
             jQuery.ajax({
                 url: '<?php echo admin_url('admin-ajax.php'); ?>',
@@ -498,7 +433,30 @@
 
     }
     </script>
-
+    
     <?php
     }
+
+
+
+
+    // Adding functionality to salty recipe fetch
+    add_action('wp_ajax_salty_recipe_fetch' , 'salty_recipe_fetch');
+    add_action('wp_ajax_nopriv_salty_recipe_fetch','salty_recipe_fetch');
+    function salty_recipe_fetch() { 
+
+        include 'assets/sections/recipe-salty-card.php';
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 

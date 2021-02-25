@@ -2,7 +2,7 @@
     $args = array(
     'post_type' => 'recipe',
     'posts_per_page' => 1000,
-    'orderby'   => 'meta_value_num',
+    'orderby'   => 'title',
     'meta_key'  => 'laji',
     'order' => 'ASC',
     'meta_query' => array(
@@ -16,6 +16,9 @@
     $recipes = new WP_Query($args);
     while ($recipes->have_posts()) {
     $recipes->the_post();
+
+    if( $post->post_author == $current_user->ID ) {
+
 ?>
 
 
@@ -102,6 +105,9 @@
 </div>
 
 <?php
+
+        }
     }
     wp_reset_query();
+    
 ?>

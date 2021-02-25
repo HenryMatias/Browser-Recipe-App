@@ -1,4 +1,4 @@
-    // Tämä funktion hakee rivit ostoslista taulukkoon
+    // This function gets values from the row to the table
     var numbershoplist = 1;
 
     function addShoplistrow() {
@@ -33,16 +33,17 @@
         document.getElementById('amountofshoplistrows').value++;
         };
 
-
         // Tämä laskee ostoslistan tuotteiden lukumäärän valikkoon
 
-        var amount = document.getElementById("shoplistid").childElementCount;
-        if (amount == 0) {
-            document.getElementById("amountofshoprows").style.display = none;
-        } else {
-            document.getElementById("amountofshoprows").style.display = "block";
-            document.getElementById("listamountfooterid").innerHTML = amount;
-        }
+        if (document.getElementById("shoplistid")) {
+          var amount = document.getElementById("shoplistid").childElementCount;
+          if (amount == 0) {
+              document.getElementById("amountofshoprows").style.display = none;
+          } else {
+              document.getElementById("amountofshoprows").style.display = "block";
+              document.getElementById("listamountfooterid").innerHTML = amount;
+          };
+        };
 
 
 
@@ -53,12 +54,12 @@
 
          for (var i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener('click', handleClick, false);
-          }
+          };
           
           function handleClick() {
             this.parentElement.parentElement.style.height = '0px';
             this.parentElement.parentElement.style.transition = '0.7s';
-          }
+          };
 
          
 
