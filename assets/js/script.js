@@ -69,7 +69,8 @@
         
 
 // To recipes in application menu
-document.getElementById("etusivu-tab").addEventListener("click", toRecipes);
+if (document.getElementById("etusivu-tab")) {
+    document.getElementById("etusivu-tab").addEventListener("click", toRecipes);
     function toRecipes() {
         document.getElementById("pagecontent").style.transitionDuration = "0.4s";
         document.getElementById("pagecontent").style.marginLeft = "10vw";
@@ -106,10 +107,12 @@ document.getElementById("etusivu-tab").addEventListener("click", toRecipes);
         document.getElementById("settings").style.top = "100%";
         document.getElementById("settings").style.display = "none";
     };
+};
 
 
 // To shoplist in application menu
-document.getElementById("ostoslista-tab").addEventListener("click", toShoplist);
+if (document.getElementById("ostoslista-tab")) {
+    document.getElementById("ostoslista-tab").addEventListener("click", toShoplist);
     function toShoplist() {
         document.getElementById("pagecontent").style.transitionDuration = "0.4s";
         document.getElementById("pagecontent").style.marginLeft = "0vh";
@@ -146,10 +149,13 @@ document.getElementById("ostoslista-tab").addEventListener("click", toShoplist);
         document.getElementById("settings").style.top = "100%";
         document.getElementById("settings").style.display = "none";
     };
+};
+
 
 
 // To search in application menu
-document.getElementById("hae-tab").addEventListener("click", toSearch);
+if (document.getElementById("hae-tab")) {
+    document.getElementById("hae-tab").addEventListener("click", toSearch);
     function toSearch() {
         document.getElementById("pagecontent").style.transitionDuration = "0.4s";
         document.getElementById("pagecontent").style.marginLeft = "10vw";
@@ -186,10 +192,13 @@ document.getElementById("hae-tab").addEventListener("click", toSearch);
         document.getElementById("settings").style.top = "100%";
         document.getElementById("settings").style.display = "none";
     };
+};
+
 
 
 // To shoplist in application menu
-document.getElementById("asetukset-tab").addEventListener("click", toSettings);
+if (document.getElementById("hae-tab")) {
+    document.getElementById("asetukset-tab").addEventListener("click", toSettings);
     function toSettings() {
         document.getElementById("headeroneid").style.transitionDuration = "0.2s";
         document.getElementById("headeroneid").style.height = "0vh";
@@ -205,6 +214,8 @@ document.getElementById("asetukset-tab").addEventListener("click", toSettings);
         document.getElementById("settings").style.top = "0%";
         document.getElementById("settings").style.display = "block";
     };
+};
+
     
 // Tämä funktion hakee ainekset taulukkoon luotaessa uutta reseptiä
 var number = 1;
@@ -260,7 +271,7 @@ function addPhase() {
     document.getElementById('instruction').value = "";
     document.getElementById('amountofareas').value++;
     };
-    // Tämä funktion hakee rivit ostoslista taulukkoon
+    // This function gets values from the row to the table
     var numbershoplist = 1;
 
     function addShoplistrow() {
@@ -297,12 +308,14 @@ function addPhase() {
 
         // Tämä laskee ostoslistan tuotteiden lukumäärän valikkoon
 
-        var amount = document.getElementById("shoplistid").childElementCount;
-        if (amount == 0) {
-            document.getElementById("amountofshoprows").style.display = none;
-        } else {
-            document.getElementById("amountofshoprows").style.display = "block";
-            document.getElementById("listamountfooterid").innerHTML = amount;
+        if (document.getElementById("shoplistid")) {
+          var amount = document.getElementById("shoplistid").childElementCount;
+          if (amount == 0) {
+              document.getElementById("amountofshoprows").style.display = none;
+          } else {
+              document.getElementById("amountofshoprows").style.display = "block";
+              document.getElementById("listamountfooterid").innerHTML = amount;
+          };
         };
 
 
@@ -324,15 +337,21 @@ function addPhase() {
          
 
             
-document.getElementById("todesktop").addEventListener("click", desktopSize);
+if (document.getElementById("todesktop")) { 
+    document.getElementById("todesktop").addEventListener("click", desktopSize);
     function desktopSize() {
         document.getElementById("devicescale").classList.remove("tablet-device");
     };
+};
 
-document.getElementById("totablet").addEventListener("click", tabletSize);
+
+if (document.getElementById("totablet")) {
+    document.getElementById("totablet").addEventListener("click", tabletSize);
     function tabletSize() {
         document.getElementById("devicescale").classList.add("tablet-device");
     };
+};
+
 
 
     

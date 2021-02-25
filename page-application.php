@@ -60,7 +60,7 @@
                     $args = array(
                     'post_type' => 'shoplist',
                     'posts_per_page' => 1,
-                    'orderby' => 'date',
+                    'orderby' => 'title',
                     'order' => 'ASC',
                     );
                     $shoplists = new WP_Query($args);

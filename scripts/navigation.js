@@ -1,5 +1,6 @@
 // To recipes in application menu
-document.getElementById("etusivu-tab").addEventListener("click", toRecipes);
+if (document.getElementById("etusivu-tab")) {
+    document.getElementById("etusivu-tab").addEventListener("click", toRecipes);
     function toRecipes() {
         document.getElementById("pagecontent").style.transitionDuration = "0.4s";
         document.getElementById("pagecontent").style.marginLeft = "10vw";
@@ -36,10 +37,12 @@ document.getElementById("etusivu-tab").addEventListener("click", toRecipes);
         document.getElementById("settings").style.top = "100%";
         document.getElementById("settings").style.display = "none";
     };
+};
 
 
 // To shoplist in application menu
-document.getElementById("ostoslista-tab").addEventListener("click", toShoplist);
+if (document.getElementById("ostoslista-tab")) {
+    document.getElementById("ostoslista-tab").addEventListener("click", toShoplist);
     function toShoplist() {
         document.getElementById("pagecontent").style.transitionDuration = "0.4s";
         document.getElementById("pagecontent").style.marginLeft = "0vh";
@@ -76,10 +79,13 @@ document.getElementById("ostoslista-tab").addEventListener("click", toShoplist);
         document.getElementById("settings").style.top = "100%";
         document.getElementById("settings").style.display = "none";
     };
+};
+
 
 
 // To search in application menu
-document.getElementById("hae-tab").addEventListener("click", toSearch);
+if (document.getElementById("hae-tab")) {
+    document.getElementById("hae-tab").addEventListener("click", toSearch);
     function toSearch() {
         document.getElementById("pagecontent").style.transitionDuration = "0.4s";
         document.getElementById("pagecontent").style.marginLeft = "10vw";
@@ -116,10 +122,13 @@ document.getElementById("hae-tab").addEventListener("click", toSearch);
         document.getElementById("settings").style.top = "100%";
         document.getElementById("settings").style.display = "none";
     };
+};
+
 
 
 // To shoplist in application menu
-document.getElementById("asetukset-tab").addEventListener("click", toSettings);
+if (document.getElementById("hae-tab")) {
+    document.getElementById("asetukset-tab").addEventListener("click", toSettings);
     function toSettings() {
         document.getElementById("headeroneid").style.transitionDuration = "0.2s";
         document.getElementById("headeroneid").style.height = "0vh";
@@ -135,4 +144,6 @@ document.getElementById("asetukset-tab").addEventListener("click", toSettings);
         document.getElementById("settings").style.top = "0%";
         document.getElementById("settings").style.display = "block";
     };
+};
+
     
