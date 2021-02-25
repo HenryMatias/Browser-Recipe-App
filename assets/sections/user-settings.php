@@ -1,8 +1,7 @@
 <?php 
     $args = array(
     'post_type' => 'setting',
-    'posts_per_page' => 1000,
-    'orderby' => 'date',
+    'posts_per_page' => 1,
     'order' => 'ASC',
     );
     $settings = new WP_Query($args);
