@@ -295,8 +295,20 @@ include get_template_directory() . '/theme/menus.php';
 
     if(isset($_POST['submitsingularadd'])) {
 
-        // Live versiossa numero on 40
-        $shoplistid = 96;
+        $userid = get_current_user_id();
+
+        global $wpdb;
+        $row = $wpdb->get_results(
+	    $wpdb->prepare(
+            "SELECT *
+            FROM {$wpdb->prefix}posts
+            WHERE (post_author = %d AND post_type = 'shoplist')
+            ",
+		    $userid
+	    ), ARRAY_A
+        );
+
+        $postid = $row[0]['ID'];
 
         $row = array(
             'ostettava_maara' => $_POST['listamount'],
@@ -304,7 +316,7 @@ include get_template_directory() . '/theme/menus.php';
             'ostettava_tuote'  => $_POST['listingredient'],
         );
         
-        add_row('ostettavat_tuotteet', $row, $shoplistid);
+        add_row('ostettavat_tuotteet', $row, $postid);
 
     };
 
