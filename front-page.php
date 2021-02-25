@@ -302,7 +302,26 @@
     <div id="section5-middle-background"></div>
     <div class="container">
         <h3><?php the_field('interested'); ?></h3>
-        <p><?php the_field('coming_soon_content'); ?></p>
+        <form action="">
+            <div class="register-form">
+                <div>
+                    <input type="text" name="registername" placeholder="Käyttäjä">
+                    <label for="registername"></label>
+                </div>
+                <div>
+                    <input type="email" name="registeremail" placeholder="Sähköposti">
+                    <label for="registeremail"></label>
+                </div>
+                <div>
+                    <input type="password" name="registerpw1" placeholder="Salasana">
+                    <label for="registerpw1"></label>
+                </div>
+                <div>
+                    <input type="password" name="registerpw2" placeholder="Vahivsta salasana">
+                    <label for="registerpw2"></label>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 
