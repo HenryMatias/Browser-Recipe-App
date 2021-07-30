@@ -57,12 +57,17 @@
             <div id="recipeareaid" class="recipe-area tab-pane fade" role="tabpanel" aria-labelledby="pills-profile-tab">
 
                 <?php 
+
+                    $userid = get_current_user_id();
+
                     $args = array(
-                    'post_type' => 'shoplist',
-                    'posts_per_page' => 1,
-                    'orderby' => 'title',
-                    'order' => 'ASC',
+                        'post_type' => 'shoplist',
+                        'posts_per_page' => 1,
+                        'orderby' => 'title',
+                        'order' => 'ASC',
+                        'author' => $userid,
                     );
+
                     $shoplists = new WP_Query($args);
                     while ($shoplists->have_posts()) {
                     $shoplists->the_post();

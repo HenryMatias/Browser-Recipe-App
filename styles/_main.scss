@@ -53,19 +53,14 @@
     }
     #pagecontent {
         border-radius: 30px 0px 0px 30px;
-        display: flex;
         position: relative;
         z-index: initial;
-        width: 90vw;
         min-height: 100px;
         box-shadow: -1px 1px 15px 4px rgba(171,171,171,0.4);
-        padding: 20px 0px 20px 15px;
-        margin: 0px 0vw 20px 10vw;
+        padding: 20px 0px 20px 0;
+        margin: 0px 0vw 20px 5vw;
         #accordion {
-            padding-right: 20px;
-            width: 90vw;
             height: 100%;
-            overflow: hidden;
             .card {
                 border: none;
                 margin-bottom: 2px;
@@ -77,6 +72,7 @@
                     border-bottom: 1px solid white;
                     position: relative;
                     h5 {
+                        padding-left: 1rem;
                         button {
                             font-family: $font-baloo;
                             font-weight: 700;
@@ -91,93 +87,73 @@
                     }
                 }
                 .card-body {
-                    padding: 10px 0px 0px 0px;
-                    nav {
-                        .nav-tabs {
-                            border-bottom: 1px solid $purple;
-                        }
-                        .nav-link {
-                            color: $purple;
-                        }
-                        .active {
-                            background-color: $purple;
-                            color: white;
-                            border-color: $purple;
-                        }
-                    }
-                    .tab-content {
-                        div {
-                            ul:nth-child(1) {
-                                padding: 10px 10px 0px 5px;
-                                list-style: none;
-                                .aines-listing {
-                                    height: 30px;
-                                    padding-left: 5px;
-                                    position: relative;
-                                    .aines-row {
+                    padding: 1.25rem 0 0 0;
+                    .recipe-wrapper {
+                        &__ingredients {
+                            ul {
+                                padding-left: 0;
+                                li {
+                                    list-style: none;
+                                    height: 2rem;
+                                    form {
                                         display: flex;
-                                        max-height: 30px!important;
-                                        position: relative;
-                                        div {
-                                            @include display (flex, center, center);
-                                            width: 80px;
-                                            input:nth-child(1) {
-                                                height: 30px;
-                                                width: 45px;
-                                                text-align: right;
-                                                border: none;
-                                                background: transparent;
-                                                pointer-events: none;
-                                                margin-right: 3px;
-                                                margin-bottom: 0px;
-                                                &:after {
-                                                    content: "\00a0";
+                                        flex-direction: row;
+                                        height: 2rem;
+                                        * {
+                                            border: none;
+                                            background-color: transparent;
+                                        }
+                                        .aines-row {
+                                            display: flex;
+                                            flex-direction: row;
+                                            div {
+                                                display: flex;
+                                                flex-direction: row;
+                                                input[name="listamount"] {
+                                                    width: 3rem;
+                                                    text-align: right;
+                                                    font-family: $font-baloo;
+                                                    height: 2rem;
+                                                    padding-top: 10px;
+                                                    pointer-events: none;
+                                                }
+                                                input[name="listunit"] {
+                                                    width: 3rem;
+                                                    text-align: left;
+                                                    font-family: $font-baloo;
+                                                    height: 2rem;
+                                                    padding-top: 10px;
+                                                    pointer-events: none;
                                                 }
                                             }
-                                            input:nth-child(2) {
-                                                height: 30px;
-                                                width: 35px;
-                                                margin-bottom: 0px;
-                                                border: none;
-                                                background: transparent;
+                                            input[name="listingredient"] {
+                                                min-width: 58vw;
+                                                font-family: $font-baloo;
+                                                height: 2rem;
+                                                padding-top: 10px;
                                                 pointer-events: none;
                                             }
                                         }
-                                        input {
-                                            height: 30px;
-                                            width: 100%;
-                                            margin-bottom: 0px;
-                                            border: none;
-                                            background: transparent;
-                                            pointer-events: none;
-                                        }
-                                    }
-                                    button {
-                                        @include display (flex, center, center);
-                                        position: absolute;
-                                        right: 6%;
-                                        top: 50%;
-                                        margin-top: -10px;
-                                        height: 20px;
-                                        background-color: transparent;
-                                        border: none;
-                                        i {
-                                            font-size: 17px;
-                                        }
-                                        svg {
-                                            transform: scale(1.2);
+                                        button {
+                                            margin: 0 0 0 auto;
+                                            background-color: transparent;
+                                            padding-right: 1rem;
+                                            padding-bottom: 8px;
                                         }
                                     }
                                 }
-                                .aines-listing:nth-child(odd) {
-                                    background-color: $light-purple;
-                                }
-                                .ohje-listing {
-                                    height: 100%;
+                                li:nth-child(odd) {
+                                    background-color: rgba(241, 83, 181, 0.2);
                                 }
                             }
+                        }
+                        &__notes {
                             ul {
-                                width: 47vh;
+                                padding: 0 1rem;
+                                li {
+                                    list-style: none;
+                                    font-family: $font-baloo;
+                                }
                             }
                         }
                     }
