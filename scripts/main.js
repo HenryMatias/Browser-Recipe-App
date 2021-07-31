@@ -47,17 +47,6 @@
                         action: 'singular_delete'
                         },
                 });
-
-                /*
-                $(".salty").ajaxForm({
-                    url: '#accordion',
-                    type: 'post',
-                    data: { action: 'salty_recipe_fetch' },
-                    success: function(data) {
-                        jQuery('#accordion').html( data );
-                }
-                });
-                */ 
                 
             });
 
