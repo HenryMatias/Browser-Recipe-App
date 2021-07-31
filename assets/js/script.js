@@ -255,9 +255,3 @@ if (document.getElementById("totablet")) {
         document.getElementById("devicescale").classList.add("tablet-device");
     };
 };
-
-
-
-    
-
-                
