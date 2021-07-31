@@ -6,7 +6,7 @@
 
         // To recipes in application menu
         $('#etusivu-tab').on('click', function() {
-            $('#pagecontent').css({ 'margin-left' : '5vw',  'margin-right' : '0vw', 'transition-duration' : '0.4s', 'border-radius' : '30px 0px 0px 30px' });
+            $('#pagecontent').css({ 'margin-left' : '0vw',  'margin-right' : '0vw', 'transition-duration' : '0.4s', 'border-radius' : '30px 0px 0px 30px' });
             $('#contentheading').css({ 'transition-duration' : '0.5s', 'right' : '9%', 'color' : colornew1});
             $('#contentheading').text('Reseptini');
             $('#modalbutton').css({ 'transition-duration' : '0.7s', 'transform' : 'rotate(0deg)', 'background-color': colornew1 });
@@ -21,7 +21,7 @@
 
         // To shoplist in application menu
         $('#ostoslista-tab').on('click', function() {
-            $('#pagecontent').css({ 'margin-left' : '0vw',  'margin-right' : '5vw', 'transition-duration' : '0.4s', 'border-radius' : '0px 30px 30px 0px' });
+            $('#pagecontent').css({ 'margin-left' : '0vw',  'margin-right' : '0vw', 'transition-duration' : '0.4s', 'border-radius' : '0px 30px 30px 0px' });
             $('#contentheading').css({ 'transition-duration' : '0.5s', 'right' : '43%', 'color' : colornew2});
             $('#contentheading').text('Ostoslista');
             $('#modalbutton').css({ 'transition-duration' : '0.7s', 'transform' : 'rotate(180deg)', 'background-color': colornew2 });
