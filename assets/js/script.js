@@ -7,32 +7,6 @@
     }
 
 
-<<<<<<< HEAD
-    // Tämä funktio vaihtaa näkymää reseptien ja ostoslistan välillä
-
-    
-    function toShoplist() {
-        
-        document.getElementById("pagecontent").style.transitionDuration = "0.4s";
-        document.getElementById("pagecontent").style.marginLeft = "0vh";
-        document.getElementById("pagecontent").style.marginRight = "10vw";
-        document.getElementById("pagecontent").style.borderRadius = "0px 30px 30px 0px";
-        document.getElementById("contentheading").style.transitionDuration = "0.5s";
-        document.getElementById("contentheading").style.color = colornew2;
-        document.getElementById("contentheading").style.right = "43%";
-        document.getElementById("contentheading").innerHTML = "Ostoslista";
-        document.getElementById("modalbutton").setAttribute("data-target", "#newlistitem");
-        document.getElementById("modalbutton").style.transitionDuration = "0.7s";
-        document.getElementById("modalbutton").style.transform = "rotate(180deg)";
-        document.getElementById("modalbutton").style.backgroundColor = colornew2;
-        document.getElementById("all-food-filter").style.transform = "translateY(60px)";
-        document.getElementById("all-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("salty-food-filter").style.transform = "translateY(60px)";
-        document.getElementById("salty-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("sweet-food-filter").style.transform = "translateY(60px)";
-        document.getElementById("sweet-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("delete-all-shoplist").style.transform = "translateY(0px)";
-=======
     function settingCheckbox() {
         var checkBox = document.getElementById("maintheme");
         var secondTheme = document.getElementById("secondtheme");
@@ -73,17 +47,6 @@
                         action: 'singular_delete'
                         },
                 });
-
-                /*
-                $(".salty").ajaxForm({
-                    url: '#accordion',
-                    type: 'post',
-                    data: { action: 'salty_recipe_fetch' },
-                    success: function(data) {
-                        jQuery('#accordion').html( data );
-                }
-                });
-                */ 
                 
             });
 
@@ -94,258 +57,70 @@
 
         
 
-// To recipes in application menu
-if (document.getElementById("etusivu-tab")) {
-    document.getElementById("etusivu-tab").addEventListener("click", toRecipes);
-    function toRecipes() {
-        document.getElementById("pagecontent").style.transitionDuration = "0.4s";
-        document.getElementById("pagecontent").style.marginLeft = "10vw";
-        document.getElementById("pagecontent").style.marginRight = "0vw";
-        document.getElementById("pagecontent").style.borderRadius = "30px 0px 0px 30px";
-        document.getElementById("contentheading").style.transitionDuration = "0.5s";
-        document.getElementById("contentheading").style.color = colornew1;
-        document.getElementById("contentheading").style.right = "9%";
-        document.getElementById("contentheading").innerHTML = "Reseptini";
-        document.getElementById("modalbutton").setAttribute("data-target", "#exampleModal");
-        document.getElementById("modalbutton").style.transitionDuration = "0.7s";
-        document.getElementById("modalbutton").style.transform = "rotate(0deg)";
-        document.getElementById("modalbutton").style.backgroundColor = colornew1;
-        document.getElementById("all-food-filter").style.transform = "translateY(0px)";
-        document.getElementById("all-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("salty-food-filter").style.transform = "translateY(0px)";
-        document.getElementById("salty-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("sweet-food-filter").style.transform = "translateY(0px)";
-        document.getElementById("sweet-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("delete-all-shoplist").style.transform = "translateY(60px)";
->>>>>>> f7309be41068b8c0d40f2c8b559c07bd2ace26ea
-        document.getElementById("delete-all-shoplist").style.transitionDuration = "0.5s";
-        document.getElementById("searchcontent").style.transitionDuration = "0.5s";
-        document.getElementById("searchcontent").style.transform = "translateX(120%)";
-        document.getElementById("maincontent").style.transitionDuration = "0.5s";
-<<<<<<< HEAD
-        document.getElementById("maincontent").style.borderRadius = "0px 50px 0px 0px";
-=======
-        document.getElementById("maincontent").style.borderRadius = "50px 0px 0px 0px"
->>>>>>> f7309be41068b8c0d40f2c8b559c07bd2ace26ea
-        document.getElementById("maincontent").style.opacity = "1";
-        document.getElementById("maincontent").style.pointerEvents = "auto";
-        document.getElementById("maincontent").style.height = "auto";
-        document.getElementById("headeroneid").style.transitionDuration = "0.5s";
-        document.getElementById("headeroneid").style.height = "36vh";
-        document.getElementById("headeroneid").style.padding = "30px 0px 0px 30px";
-        document.getElementById("settings").style.transitionDuration = "0.5s";
-        document.getElementById("settings").style.opacity = "0";
-        document.getElementById("settings").style.top = "100%";
-        document.getElementById("settings").style.display = "none";
-<<<<<<< HEAD
-    }
-    
-
-    function toRecipes() {
-
-        document.getElementById("pagecontent").style.transitionDuration = "0.4s";
-        document.getElementById("pagecontent").style.marginLeft = "10vw";
-        document.getElementById("pagecontent").style.marginRight = "0vw";
-        document.getElementById("pagecontent").style.borderRadius = "30px 0px 0px 30px";
-        document.getElementById("contentheading").style.transitionDuration = "0.5s";
-        document.getElementById("contentheading").style.color = colornew1;
-        document.getElementById("contentheading").style.right = "9%";
-        document.getElementById("contentheading").innerHTML = "Reseptini";
-        document.getElementById("modalbutton").setAttribute("data-target", "#exampleModal");
-        document.getElementById("modalbutton").style.transitionDuration = "0.7s";
-        document.getElementById("modalbutton").style.transform = "rotate(0deg)";
-        document.getElementById("modalbutton").style.backgroundColor = colornew1;
-        document.getElementById("all-food-filter").style.transform = "translateY(0px)";
-        document.getElementById("all-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("salty-food-filter").style.transform = "translateY(0px)";
-        document.getElementById("salty-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("sweet-food-filter").style.transform = "translateY(0px)";
-        document.getElementById("sweet-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("delete-all-shoplist").style.transform = "translateY(60px)";
-=======
-    };
-};
-
-
-// To shoplist in application menu
-if (document.getElementById("ostoslista-tab")) {
-    document.getElementById("ostoslista-tab").addEventListener("click", toShoplist);
-    function toShoplist() {
-        document.getElementById("pagecontent").style.transitionDuration = "0.4s";
-        document.getElementById("pagecontent").style.marginLeft = "0vh";
-        document.getElementById("pagecontent").style.marginRight = "10vw";
-        document.getElementById("pagecontent").style.borderRadius = "0px 30px 30px 0px";
-        document.getElementById("contentheading").style.transitionDuration = "0.5s";
-        document.getElementById("contentheading").style.color = colornew2;
-        document.getElementById("contentheading").style.right = "43%";
-        document.getElementById("contentheading").innerHTML = "Ostoslista";
-        document.getElementById("modalbutton").setAttribute("data-target", "#newlistitem");
-        document.getElementById("modalbutton").style.transitionDuration = "0.7s";
-        document.getElementById("modalbutton").style.transform = "rotate(180deg)";
-        document.getElementById("modalbutton").style.backgroundColor = colornew2;
-        document.getElementById("all-food-filter").style.transform = "translateY(60px)";
-        document.getElementById("all-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("salty-food-filter").style.transform = "translateY(60px)";
-        document.getElementById("salty-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("sweet-food-filter").style.transform = "translateY(60px)";
-        document.getElementById("sweet-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("delete-all-shoplist").style.transform = "translateY(0px)";
->>>>>>> f7309be41068b8c0d40f2c8b559c07bd2ace26ea
-        document.getElementById("delete-all-shoplist").style.transitionDuration = "0.5s";
-        document.getElementById("searchcontent").style.transitionDuration = "0.5s";
-        document.getElementById("searchcontent").style.transform = "translateX(120%)";
-        document.getElementById("maincontent").style.transitionDuration = "0.5s";
-<<<<<<< HEAD
-        document.getElementById("maincontent").style.borderRadius = "50px 0px 0px 0px"
-=======
-        document.getElementById("maincontent").style.borderRadius = "0px 50px 0px 0px";
->>>>>>> f7309be41068b8c0d40f2c8b559c07bd2ace26ea
-        document.getElementById("maincontent").style.opacity = "1";
-        document.getElementById("maincontent").style.pointerEvents = "auto";
-        document.getElementById("maincontent").style.height = "auto";
-        document.getElementById("headeroneid").style.transitionDuration = "0.5s";
-        document.getElementById("headeroneid").style.height = "36vh";
-        document.getElementById("headeroneid").style.padding = "30px 0px 0px 30px";
-        document.getElementById("settings").style.transitionDuration = "0.5s";
-        document.getElementById("settings").style.opacity = "0";
-        document.getElementById("settings").style.top = "100%";
-        document.getElementById("settings").style.display = "none";
-<<<<<<< HEAD
-    }
-
-    function toSearch() {
-
-=======
-    };
-};
-
-
-
-// To search in application menu
-if (document.getElementById("hae-tab")) {
-    document.getElementById("hae-tab").addEventListener("click", toSearch);
-    function toSearch() {
->>>>>>> f7309be41068b8c0d40f2c8b559c07bd2ace26ea
-        document.getElementById("pagecontent").style.transitionDuration = "0.4s";
-        document.getElementById("pagecontent").style.marginLeft = "10vw";
-        document.getElementById("pagecontent").style.marginRight = "0vw";
-        document.getElementById("pagecontent").style.borderRadius = "30px 0px 0px 30px";
-        document.getElementById("contentheading").style.transitionDuration = "0.5s";
-        document.getElementById("contentheading").style.color = colornew1;
-        document.getElementById("contentheading").style.right = "9%";
-        document.getElementById("contentheading").innerHTML = "Reseptini";
-        document.getElementById("modalbutton").setAttribute("data-target", "#exampleModal");
-        document.getElementById("modalbutton").style.transitionDuration = "0.7s";
-        document.getElementById("modalbutton").style.transform = "rotate(0deg)";
-        document.getElementById("modalbutton").style.backgroundColor = colornew1;
-        document.getElementById("all-food-filter").style.transform = "translateY(60px)";
-        document.getElementById("all-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("salty-food-filter").style.transform = "translateY(60px)";
-        document.getElementById("salty-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("sweet-food-filter").style.transform = "translateY(60px)";
-        document.getElementById("sweet-food-filter").style.transitionDuration = "0.5s";
-        document.getElementById("delete-all-shoplist").style.transform = "translateY(60px)";
-        document.getElementById("delete-all-shoplist").style.transitionDuration = "0.5s";
-        document.getElementById("searchcontent").style.transitionDuration = "0.5s";
-        document.getElementById("searchcontent").style.transform = "translateX(0%)";
-        document.getElementById("maincontent").style.transitionDuration = "0.5s";
-        document.getElementById("maincontent").style.borderRadius = "50px 0px 0px 0px"
-        document.getElementById("maincontent").style.opacity = "1";
-        document.getElementById("maincontent").style.pointerEvents = "auto";
-        document.getElementById("maincontent").style.height = "auto";
-        document.getElementById("headeroneid").style.transitionDuration = "0.5s";
-        document.getElementById("headeroneid").style.height = "36vh";
-        document.getElementById("headeroneid").style.padding = "30px 0px 0px 30px";
-        document.getElementById("settings").style.transitionDuration = "0.5s";
-        document.getElementById("settings").style.opacity = "0";
-        document.getElementById("settings").style.top = "100%";
-        document.getElementById("settings").style.display = "none";
-<<<<<<< HEAD
-    }
-
-    function toSettings() {
-
-=======
-    };
-};
-
-
-
-// To shoplist in application menu
-if (document.getElementById("hae-tab")) {
-    document.getElementById("asetukset-tab").addEventListener("click", toSettings);
-    function toSettings() {
->>>>>>> f7309be41068b8c0d40f2c8b559c07bd2ace26ea
-        document.getElementById("headeroneid").style.transitionDuration = "0.2s";
-        document.getElementById("headeroneid").style.height = "0vh";
-        document.getElementById("headeroneid").style.padding = "0px";
-        document.getElementById("maincontent").style.transitionDuration = "0.2s";
-        document.getElementById("maincontent").style.borderRadius = "0px 0px 0px 0px"
-        document.getElementById("maincontent").style.opacity = "0";
-        document.getElementById("maincontent").style.pointerEvents = "none";
-        document.getElementById("maincontent").style.height = "0px";
-        document.getElementById("modalbutton").setAttribute("data-target", "#");
-        document.getElementById("settings").style.transitionDuration = "0.5s";
-        document.getElementById("settings").style.opacity = "1";
-        document.getElementById("settings").style.top = "0%";
-        document.getElementById("settings").style.display = "block";
-<<<<<<< HEAD
-
-    }
-
-    function settingCheckbox() {
-        var checkBox = document.getElementById("maintheme");
-        var secondTheme = document.getElementById("secondtheme");
-        var slider = document.getElementById("themeslider");
-        var maintheme = document.getElementById("activetheme");
-        if (checkBox.checked == false){
-            secondTheme.style.opacity = "1";
-            secondTheme.style.maxHeight = "200px";
-            secondTheme.style.overflow = "visible";
-            secondTheme.style.padding = "20px 0px 10px 0px";
-            secondTheme.style.transition = "0.4s";
-            slider.style.paddingBottom = "10px";
-            maintheme.setAttribute("value", "unchecked");
-            
-        } else {
-            secondTheme.style.opacity = "0";
-            secondTheme.style.maxHeight = "0px";
-            secondTheme.style.overflow = "hidden";
-            secondTheme.style.padding = "0px";
-            slider.style.paddingBottom = "0px"
-            maintheme.setAttribute("value", "checked");
-        }
-        return;
-      }
-
-
-
-
-
-        (function ($, root, undefined) {
+(function ($, root, undefined) {
 	
-            $(function () {
-                
-                'use strict';
-                
-                // DOM ready, take it away
-
-                $(".remove").ajaxForm({url: '#recipeareaid', type: 'post'})
-
-                
-            });
-            
-        })(jQuery, this);
-
-
+    $(function () {
         
+        'use strict';
 
-=======
-    };
-};
+        // To recipes in application menu
+        $('#etusivu-tab').on('click', function() {
+            $('#pagecontent').css({ 'margin-left' : '5vw',  'margin-right' : '0vw', 'transition-duration' : '0.4s', 'border-radius' : '30px 0px 0px 30px' });
+            $('#contentheading').css({ 'transition-duration' : '0.5s', 'right' : '9%', 'color' : colornew1});
+            $('#contentheading').text('Reseptini');
+            $('#modalbutton').css({ 'transition-duration' : '0.7s', 'transform' : 'rotate(0deg)', 'background-color': colornew1 });
+            $('#modalbutton').attr('data-target','#exampleModal');
+            $('#all-food-filter, #salty-food-filter, #sweet-food-filter').css({'transform' : 'translateY(0px)', 'transition-duration' : '0.5s'});
+            $('#delete-all-shoplist').css({ 'transform' : 'translateY(60px)', 'transition-duration' : '0.5s' });
+            $('#searchcontent').css({ 'transform' : 'translateX(120%)', 'transition-duration' : '0.5s' });
+            $('#maincontent').css({ 'border-radius' : '50px 0px 0px 0px', 'transition-duration' : '0.5s', 'opacity' : '1', 'pointer-events' : 'auto', 'height' : 'auto' });
+            $('#headeroneid').css({ 'height' : '36vh', 'transition-duration' : '0.5s', 'padding' : '30px 0px 0px 30px' });
+            $('#settings').css({ 'opacity' : '0', 'transition-duration' : '0.5s', 'top' : '100%', 'display' : 'none' });
+        })
+
+        // To shoplist in application menu
+        $('#ostoslista-tab').on('click', function() {
+            $('#pagecontent').css({ 'margin-left' : '0vw',  'margin-right' : '5vw', 'transition-duration' : '0.4s', 'border-radius' : '0px 30px 30px 0px' });
+            $('#contentheading').css({ 'transition-duration' : '0.5s', 'right' : '43%', 'color' : colornew2});
+            $('#contentheading').text('Ostoslista');
+            $('#modalbutton').css({ 'transition-duration' : '0.7s', 'transform' : 'rotate(180deg)', 'background-color': colornew2 });
+            $('#modalbutton').attr('data-target','#newlistitem');
+            $('#all-food-filter, #salty-food-filter, #sweet-food-filter').css({'transform' : 'translateY(60px)', 'transition-duration' : '0.5s'});
+            $('#delete-all-shoplist').css({ 'transform' : 'translateY(0px)', 'transition-duration' : '0.5s' });
+            $('#searchcontent').css({ 'transform' : 'translateX(120%)', 'transition-duration' : '0.5s' });
+            $('#maincontent').css({ 'border-radius' : '0px 50px 0px 0px', 'transition-duration' : '0.5s', 'opacity' : '1', 'pointer-events' : 'auto', 'height' : 'auto' });
+            $('#headeroneid').css({ 'height' : '36vh', 'transition-duration' : '0.5s', 'padding' : '30px 0px 0px 30px' });
+            $('#settings').css({ 'opacity' : '0', 'transition-duration' : '0.5s', 'top' : '100%', 'display' : 'none' });
+        })
+
+        // To search in application menu
+        $('#hae-tab').on('click', function() {
+            $('#pagecontent').css({ 'margin-left' : '5vw',  'margin-right' : '0vw', 'transition-duration' : '0.4s', 'border-radius' : '30px 0px 0px 30px' });
+            $('#contentheading').css({ 'transition-duration' : '0.5s', 'right' : '9%', 'color' : colornew1});
+            $('#contentheading').text('Reseptini');
+            $('#modalbutton').css({ 'transition-duration' : '0.7s', 'transform' : 'rotate(0deg)', 'background-color': colornew1 });
+            $('#modalbutton').attr('data-target','#exampleModal');
+            $('#all-food-filter, #salty-food-filter, #sweet-food-filter').css({'transform' : 'translateY(60px)', 'transition-duration' : '0.5s'});
+            $('#delete-all-shoplist').css({ 'transform' : 'translateY(60px)', 'transition-duration' : '0.5s' });
+            $('#searchcontent').css({ 'transform' : 'translateX(0%)', 'transition-duration' : '0.5s' });
+            $('#maincontent').css({ 'border-radius' : '50px 0px 0px 0px', 'transition-duration' : '0.5s', 'opacity' : '1', 'pointer-events' : 'auto', 'height' : 'auto' });
+            $('#headeroneid').css({ 'height' : '36vh', 'transition-duration' : '0.5s', 'padding' : '30px 0px 0px 30px' });
+            $('#settings').css({ 'opacity' : '0', 'transition-duration' : '0.5s', 'top' : '100%', 'display' : 'none' });
+        })
+
+        // To shoplist in application menu
+        $('#asetukset-tab').on('click', function() {
+            $('#modalbutton').attr('data-target','#');
+            $('#maincontent').css({ 'border-radius' : '0px 0px 0px 0px', 'transition-duration' : '0.2s', 'opacity' : '0', 'pointer-events' : 'none', 'height' : '0px' });
+            $('#headeroneid').css({ 'height' : '0vh', 'transition-duration' : '0.2s', 'padding' : '0px' });
+            $('#settings').css({ 'opacity' : '1', 'transition-duration' : '0.5s', 'top' : '0%', 'display' : 'block' });
+        })
+        
+    });
+
+})(jQuery, this);
 
     
->>>>>>> f7309be41068b8c0d40f2c8b559c07bd2ace26ea
 // Tämä funktion hakee ainekset taulukkoon luotaessa uutta reseptiä
 var number = 1;
 
@@ -382,11 +157,7 @@ function addIngredient() {
     };
 
 
-<<<<<<< HEAD
-    // Tämä funktion hakee vaiheet taulukkoon luotaessa uutta reseptiä
-=======
 // Tämä funktion hakee vaiheet taulukkoon luotaessa uutta reseptiä
->>>>>>> f7309be41068b8c0d40f2c8b559c07bd2ace26ea
 var numberphase = 1;
 
 function addPhase() {
@@ -404,11 +175,7 @@ function addPhase() {
     document.getElementById('instruction').value = "";
     document.getElementById('amountofareas').value++;
     };
-<<<<<<< HEAD
-    // Tämä funktion hakee rivit ostoslista taulukkoon
-=======
     // This function gets values from the row to the table
->>>>>>> f7309be41068b8c0d40f2c8b559c07bd2ace26ea
     var numbershoplist = 1;
 
     function addShoplistrow() {
@@ -443,18 +210,6 @@ function addPhase() {
         document.getElementById('amountofshoplistrows').value++;
         };
 
-<<<<<<< HEAD
-
-        // Tämä laskee ostoslistan tuotteiden lukumäärän valikkoon
-
-        var amount = document.getElementById("shoplistid").childElementCount;
-        if (amount == 0) {
-            document.getElementById("amountofshoprows").style.display = none;
-        } else {
-            document.getElementById("amountofshoprows").style.display = "block";
-            document.getElementById("listamountfooterid").innerHTML = amount;
-        }
-=======
         // Tämä laskee ostoslistan tuotteiden lukumäärän valikkoon
 
         if (document.getElementById("shoplistid")) {
@@ -466,7 +221,6 @@ function addPhase() {
               document.getElementById("listamountfooterid").innerHTML = amount;
           };
         };
->>>>>>> f7309be41068b8c0d40f2c8b559c07bd2ace26ea
 
 
 
@@ -477,22 +231,11 @@ function addPhase() {
 
          for (var i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener('click', handleClick, false);
-<<<<<<< HEAD
-          }
-=======
           };
->>>>>>> f7309be41068b8c0d40f2c8b559c07bd2ace26ea
           
           function handleClick() {
             this.parentElement.parentElement.style.height = '0px';
             this.parentElement.parentElement.style.transition = '0.7s';
-<<<<<<< HEAD
-          }
-
-         
-
-            
-=======
           };
 
          
@@ -512,10 +255,3 @@ if (document.getElementById("totablet")) {
         document.getElementById("devicescale").classList.add("tablet-device");
     };
 };
-
-
-
-    
-
-                
->>>>>>> f7309be41068b8c0d40f2c8b559c07bd2ace26ea
