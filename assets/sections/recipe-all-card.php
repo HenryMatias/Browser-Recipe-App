@@ -41,6 +41,9 @@
     </div>
 
     <div id="collapseOne<?php echo "$recipe_title"; ?>" class="collapse" aria-labelledby="headingOne<?php echo "$recipe_title"; ?>" data-parent="#accordion">
+        <div class="card-head">
+            <h3 class="card-head__title"></h3>
+        </div>
         <div class="card-body">
            <div class="recipe-wrapper">
                <div class="recipe-wrapper__ingredients">
